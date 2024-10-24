@@ -18,3 +18,5 @@ Ano/Semestre: 2024/2
 Site de imobiliária para os moraradores da cidade de Cornélio Procópio que tem como principais funcionalidade uma landing page com possibilidade de pesquisa, área logada que permite adicionar novos imóveis na página principal.
 
 ## Documentos
+
+- [Guia de Contribuição](CONTRIBUTING.md)
