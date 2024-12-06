@@ -1,0 +1,51 @@
+name: Verificar build do site
+
+on:
+  push:
+    paths:
+      - "Site/**"
+      - ".github/workflows/verificar-build-site.yml"
+  pull_request:
+    paths:
+      - "Site/**"
+      - ".github/workflows/verificar-build-site.yml"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Obter cópia do repositório
+      uses: actions/checkout@v4
+
+    - name: Usar pNpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+    
+    - name: Usar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+    
+    - name: Obter caminho para armazenagem do pNpm
+      id: pnpm-cache
+      run: |
+        echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      
+    - name: Inicializar cache do pNpm
+      uses: actions/cache@v4
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+      
+    - name: Instalar dependências
+      working-directory: "Site"
+      run: pnpm install
+    
+    - name: Buildar versão de produção
+      working-directory: "Site"
+      run: pnpm run build
