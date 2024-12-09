@@ -22,7 +22,7 @@ jobs:
     - name: Usar pNpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9
+        package_json_file: Site/package.json
     
     - name: Usar Node.js
       uses: actions/setup-node@v4
