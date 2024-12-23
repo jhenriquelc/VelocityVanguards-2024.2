@@ -22,10 +22,10 @@ importers:
         version: 4.0.4(svelte@5.15.0)(vite@5.4.10)
       '@tailwindcss/forms':
         specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.4.16)
+        version: 0.5.9(tailwindcss@3.4.17)
       '@tailwindcss/typography':
         specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.16)
+        version: 0.5.15(tailwindcss@3.4.17)
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
@@ -37,7 +37,7 @@ importers:
         version: 0.47.4(rollup@4.24.1)(svelte@5.15.0)
       flowbite-svelte-icons:
         specifier: ^2.0.2
-        version: 2.0.2(svelte@5.15.0)(tailwind-merge@2.5.4)(tailwindcss@3.4.16)
+        version: 2.0.2(svelte@5.15.0)(tailwind-merge@2.5.4)(tailwindcss@3.4.17)
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -54,8 +54,8 @@ importers:
         specifier: ^4.1.1
         version: 4.1.1(picomatch@4.0.2)(svelte@5.15.0)(typescript@5.7.2)
       tailwindcss:
-        specifier: ^3.4.16
-        version: 3.4.16
+        specifier: ^3.4.17
+        version: 3.4.17
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -1059,8 +1059,8 @@ packages:
   tailwind-merge@2.5.4:
     resolution: {integrity: sha512-0q8cfZHMu9nuYP/b5Shb7Y7Sh1B7Nnl5GqNr1U+n2p6+mybvRtayrQ+0042Z5byvTA8ihjlP8Odo8/VnHbZu4Q==}
 
-  tailwindcss@3.4.16:
-    resolution: {integrity: sha512-TI4Cyx7gDiZ6r44ewaJmt0o6BrMCT5aK5e0rmJ/G9Xq3w7CX/5VXl/zIPEJZFUK5VEqwByyhqNPycPlvcK4ZNw==}
+  tailwindcss@3.4.17:
+    resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -1407,18 +1407,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.16)':
+  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.17)':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.4.16
+      tailwindcss: 3.4.17
 
-  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.16)':
+  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.17)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.16
+      tailwindcss: 3.4.17
 
   '@types/cookie@0.6.0': {}
 
@@ -1617,11 +1617,11 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  flowbite-svelte-icons@2.0.2(svelte@5.15.0)(tailwind-merge@2.5.4)(tailwindcss@3.4.16):
+  flowbite-svelte-icons@2.0.2(svelte@5.15.0)(tailwind-merge@2.5.4)(tailwindcss@3.4.17):
     dependencies:
       svelte: 5.15.0
       tailwind-merge: 2.5.4
-      tailwindcss: 3.4.16
+      tailwindcss: 3.4.17
 
   flowbite-svelte@0.47.4(rollup@4.24.1)(svelte@5.15.0):
     dependencies:
@@ -2011,7 +2011,7 @@ snapshots:
 
   tailwind-merge@2.5.4: {}
 
-  tailwindcss@3.4.16:
+  tailwindcss@3.4.17:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
