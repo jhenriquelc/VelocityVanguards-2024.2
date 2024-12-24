@@ -2,9 +2,9 @@ CREATE DATABASE IF NOT EXISTS ImobiliariaVanguard;
 USE DATABASE ImobiliariaVanguard;
 
 CREATE TABLE Funcionario(
-   	Login VARCHAR(20),
-    Nome VARCHAR(11),
-    PRIMARY KEY (Login)
+   	CPF CHAR(11),
+    HashSenha CHAR(64),	/*Assumindo SHA 256*/
+    PRIMARY KEY (CPF)
 );
 
 CREATE TABLE Bairro (
