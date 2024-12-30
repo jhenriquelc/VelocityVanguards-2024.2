@@ -51,6 +51,7 @@ Você pode ver uma pré-visualização da versão de produção com `pnpm run pr
 
 * [tailwindcss](https://tailwindcss.com/docs/): classes css com estilos comuns prontos
 * [flowbite-svelte](https://flowbite-svelte.com/docs/components/accordion): componentes prontos para Svelte que fazem uso de tailwindcss
+* [flowbite-svelte-blocks](https://flowbite-svelte-blocks.vercel.app/): conjuntos de componentes prontos que fazem uso dos componentes disponíveis em flowbite-svelte.
 
 ## Navegação
 

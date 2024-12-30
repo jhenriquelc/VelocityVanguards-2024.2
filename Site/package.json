@@ -2,7 +2,7 @@
 	"name": "teste-svelte",
 	"version": "0.0.1",
 	"type": "module",
-	"packageManager": "pnpm@9.15.1",
+	"packageManager": "pnpm@9.15.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -21,7 +21,9 @@
 		"autoprefixer": "^10.4.20",
 		"flowbite": "^2.5.2",
 		"flowbite-svelte": "^0.47.4",
+		"flowbite-svelte-blocks": "^1.1.4",
 		"flowbite-svelte-icons": "^2.0.2",
+		"flowbite-typography": "^1.0.5",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
 		"prettier-plugin-tailwindcss": "^0.6.9",
