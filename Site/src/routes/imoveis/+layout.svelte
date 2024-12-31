@@ -4,4 +4,6 @@
 
 <VvHeader></VvHeader>
 
-<slot></slot>
+<slot>
+	
+</slot>

@@ -1,5 +1,4 @@
 import mariadb from 'mariadb';
-
 let listImoveis;
 
 const pool = mariadb.createPool({

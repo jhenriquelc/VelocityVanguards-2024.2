@@ -6,6 +6,7 @@
 <style>
 	.background {
 	  position: relative;
+	  z-index: 1;
 	}
   
 	.background::before {

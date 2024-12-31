@@ -1,21 +1,30 @@
+
 <script>
+	// @ts-nocheck
+
+	import VvHero from './VvHero.svelte';
 	import VvHeader from '$lib/VvHeader.svelte';
 	import { P, Heading } from 'flowbite-svelte';
-	import Cards from '$lib/Cards.svelte';
+	import Cards from '$lib/CardsVendaEmDestaque.svelte';
+	import CardsVendaEmDestaque from '$lib/CardsVendaEmDestaque.svelte';
 	let {data} = $props();
 	console.log("Dentro do page" + data);
 </script>
-
-<VvHeader></VvHeader>
-
-<VvHero></VvHero>
-
-<div class="m-8">
-	<Heading class="mb-4 text-center">Avance na vida.</Heading>
-	<P>Descubra como a Vanguard lhe põe à frente do mercado imobiliário.</P>
-</div>
+<style>
+	.main{
+		background-color: rgb(238, 238, 238);
+	}
+</style>
 
 
-<div style="margin: 10px 100px;">
-	<Cards listImoveis={data.listImoveis}></Cards>
+<div class="main">
+	<VvHeader></VvHeader>
+	
+	<VvHero>
+		<div class="m-8">
+			<Heading class="mb-4 text-center">Avance na vida.</Heading>
+			<P>Descubra como a Vanguard lhe põe à frente do mercado imobiliário.</P>
+		</div>
+	</VvHero>
+	<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
 </div>
