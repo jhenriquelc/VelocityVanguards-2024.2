@@ -1,4 +1,6 @@
+
 <script>
+    import { Card } from 'flowbite-svelte';
     const {listImoveis} = $props();
     console.log("Dentro do carrossel");
     console.log(listImoveis);
@@ -19,7 +21,7 @@
 
 <div class="carrossel">
     {#each listImoveis as imovel}
-    
+        <Card>
             <div>
                 <h3>{imovel.Nome}</h3>
                 <p>R$ {imovel.Preco}</p>
@@ -27,6 +29,7 @@
                     <img src={imovel.Imagem} alt="Imagem de um imóvel">
                 </a>
             </div>
+        </Card>
 
     {/each}
 </div> 
