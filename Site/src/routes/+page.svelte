@@ -8,8 +8,19 @@
 	import Cards from '$lib/CardsVendaEmDestaque.svelte';
 	import CardsVendaEmDestaque from '$lib/CardsVendaEmDestaque.svelte';
 	let {data} = $props();
-	console.log("Dentro do page" + data);
+	let images = [  {
+      alt: 'Imagem do imovel' + data.nomeImovel,
+      src: './imagem2.jpg',
+      title: 'cosmic-timetraveler-pYyOZ8q7AII-unsplash.com'
+    }, 
+    {
+      alt: 'Imagem do imovel' + data.nomeImovel,
+      src: './imagem2.jpg',
+      title: 'cosmic-timetraveler-pYyOZ8q7AII-unsplash.com'
+    }]
+
 </script>
+
 <style>
 	.main{
 		background-color: rgb(238, 238, 238);
@@ -19,7 +30,7 @@
 
 <div class="main">
 	<VvHeader></VvHeader>
-	
+
 	<VvHero>
 		<div class="m-8">
 			<Heading class="mb-4 text-center">Avance na vida.</Heading>
@@ -27,4 +38,5 @@
 		</div>
 	</VvHero>
 	<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
+	
 </div>
