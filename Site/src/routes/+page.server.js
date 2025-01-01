@@ -1,5 +1,5 @@
+// @ts-nocheck
 import mariadb from 'mariadb';
-let listImoveis;
 
 const pool = mariadb.createPool({
     host: 'localhost',
@@ -12,19 +12,16 @@ async function ObterDados() {
     let conn;
     try {
       conn = await pool.getConnection();
-      listImoveis = await conn.query("SELECT * FROM imovel");
-      console.log(listImoveis); 
+      return await conn.query("SELECT * FROM imovel");
     } catch (err) {
       throw err;
     } finally {
-      if (conn) conn.end();
+      if (conn) conn.release();
     }
 }
-ObterDados().then(() => {
-   pool.end();
-});
 
-export function load(){
+export async function load(){
+    const listImoveis = await ObterDados();
     return {
         listImoveis: listImoveis
     };
