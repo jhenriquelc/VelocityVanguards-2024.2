@@ -1,10 +1,7 @@
 
 <script>
     import { Button, Card } from 'flowbite-svelte';
-	import { Section } from 'flowbite-svelte-blocks';
     const {listImoveis} = $props();
-    console.log("Dentro do carrossel");
-    console.log(listImoveis);
 </script>
 
 <style>
@@ -59,6 +56,7 @@
     }
 
     .botao-saiba-mais{
+        font-weight: bold;
     }
 
     .vendas-em-destaque{
