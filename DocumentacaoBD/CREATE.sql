@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS ImobiliariaVanguard;
-USE  ImobiliariaVanguard;
-
+USE ImobiliariaVanguard;
 
 CREATE TABLE Funcionario(
    	CPF CHAR(11),
@@ -20,13 +19,6 @@ CREATE TABLE Rua (
     PRIMARY KEY (ID_Rua)
 );
 
-CREATE TABLE Rua_Bairro(
-	ID_Bairro int,
-	ID_Rua int,
-	FOREIGN KEY (ID_Bairro) REFERENCES Bairro (ID_Bairro),
-	FOREIGN KEY (ID_Rua) REFERENCES Rua (ID_Rua),
-	PRIMARY KEY (ID_Bairro, ID_Rua)
-);
 
 CREATE TABLE Imovel (
 	#endereco
@@ -48,8 +40,8 @@ CREATE TABLE Imovel (
 	NumeroBanheiros int, 
 	
 	PRIMARY KEY (ID_Imovel),
-	FOREIGN KEY (ID_Bairro) REFERENCES Rua_Bairro(ID_Bairro),
-	FOREIGN KEY (ID_Rua) REFERENCES Rua_Bairro(ID_Rua)
+	FOREIGN KEY (ID_Bairro) REFERENCES Bairro(ID_Bairro),
+	FOREIGN KEY (ID_Rua) REFERENCES Rua(ID_Rua)
 );
 
 CREATE TABLE Imagem (
