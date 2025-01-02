@@ -26,11 +26,20 @@ CREATE TABLE Imovel (
 	ID_Bairro int,
 	ID_Rua int, 
 	
+	Titulo VARCHAR(50),
+	Descricao TEXT,
 	Categoria int, /*1=Apartamento 2=Casa 3=Terreno 4=SalaComercial*/
 	Tipo int, /*1=Comercial 2=Residencial*/
 	PrecoAluguel float NULL, /* Se for NULL não é alugavel*/
 	PrecoVenda float NULL,	 /* Se for NULL não está a venda*/
 	
+	PRIMARY KEY (ID_Imovel),
+	FOREIGN KEY (ID_Bairro) REFERENCES Bairro(ID_Bairro),
+	FOREIGN KEY (ID_Rua) REFERENCES Rua(ID_Rua)
+);
+
+CREATE TABLE Propriedades(
+	ID_Imovel int,
 	ValorCondominio float NULL,
 	ValorIptu float,
 	
@@ -40,8 +49,7 @@ CREATE TABLE Imovel (
 	NumeroBanheiros int, 
 	
 	PRIMARY KEY (ID_Imovel),
-	FOREIGN KEY (ID_Bairro) REFERENCES Bairro(ID_Bairro),
-	FOREIGN KEY (ID_Rua) REFERENCES Rua(ID_Rua)
+	FOREIGN KEY (ID_Imovel) REFERENCES Imovel(ID_Imovel)
 );
 
 CREATE TABLE Imagem (
