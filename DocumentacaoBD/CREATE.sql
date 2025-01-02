@@ -1,5 +1,6 @@
 CREATE DATABASE IF NOT EXISTS ImobiliariaVanguard;
-USE DATABASE ImobiliariaVanguard;
+USE  ImobiliariaVanguard;
+
 
 CREATE TABLE Funcionario(
    	CPF CHAR(11),
@@ -33,12 +34,16 @@ CREATE TABLE Imovel (
 	ID_Bairro int,
 	ID_Rua int, 
 	
-	Categoria VARCHAR(20),
-	Preco float,
+	Categoria int, /*1=Apartamento 2=Casa 3=Terreno 4=SalaComercial*/
+	Tipo int, /*1=Comercial 2=Residencial*/
+	PrecoAluguel float NULL, /* Se for NULL não é alugavel*/
+	PrecoVenda float NULL,	 /* Se for NULL não está a venda*/
+	
+	ValorCondominio float NULL,
+	ValorIptu float,
+	
 	Area float,
-	ValorCondominio float,
-
-	Rua VARCHAR(30),
+	NumeroGaragem int, 
 	NumeroQuartos int,
 	NumeroBanheiros int, 
 	
