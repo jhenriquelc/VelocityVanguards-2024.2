@@ -2,6 +2,7 @@
 <script>
     import { Button, Card } from 'flowbite-svelte';
     const {listImoveis} = $props();
+    console.log(listImoveis);
 </script>
 
 <style>
@@ -84,27 +85,28 @@
 <section class="section-vendas-em-destaque">
     <h2 class="vendas-em-destaque">Imóveis à venda em destaque para Cornélio</h2>
 
-
     <div class="grid">
         {#each listImoveis as imovel}
-        <div class="grid-item">
-            <Card  img={"imagem2.jpeg"}>
-                <div>
-                    <h3 class="nome-imovel two-lines-truncation">{imovel.Nome}</h3>
-                    <p class="rua-bairro-imovel single-line-truncation">Rua das Camélias, Jardim Azul - Cornélio Procópio</p>
-                    <p class="valor-imovel">Comprar: {new Intl.NumberFormat('pt-BR', {style: 'currency',
-                        currency: 'BRL',
-                    }).format(imovel.Preco)}</p>
+            {#if imovel.PrecoVenda > 0 && imovel.PrecoVenda !== null}
+                <div class="grid-item">
+                    <Card  img={"imagem2.jpg"}>
+                        <div>
+                            <h3 class="nome-imovel two-lines-truncation">{imovel.Titulo}</h3>
+                            <p class="rua-bairro-imovel single-line-truncation"> {`${imovel.RuaNome}, ${imovel.BairroNome} - Cornélio Procópio`}</p>
+                            <p class="valor-imovel">Comprar: {new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                currency: 'BRL',
+                            }).format(imovel.PrecoVenda)}</p>
+                        </div>
+                        <div class="div-botao">
+                            <a href="/imoveis/{imovel.ID_Imovel}">
+                                <Button>
+                                    <p class="botao-saiba-mais" > Saiba mais sobre esse imóvel</p>
+                                </Button>
+                            </a>
+                        </div>
+                    </Card>
                 </div>
-                <div class="div-botao">
-                    <a href="/about">
-                        <Button>
-                            <p class="botao-saiba-mais" > Saiba mais sobre esse imóvel</p>
-                        </Button>
-                    </a>
-                </div>
-            </Card>
-        </div>
+            {/if}
         {/each}
     </div> 
 </section>
