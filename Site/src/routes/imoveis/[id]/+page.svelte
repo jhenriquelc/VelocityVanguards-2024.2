@@ -1,9 +1,20 @@
 <script>
+    import { Carousel } from "flowbite-svelte";
     let {data} = $props();
-    console.log(data)
+
 </script>
 
-<h2>
-    {data.nomeImovel}
-</h2>
+<style>
+    .imagem-e-preco{
+        display: flex;
+    }
+
+</style>
+
+<section class="imagem-e-preco">
+    <h2>
+        {data.nomeImovel}
+    </h2>
+    <img src="./imagem2.jpg" alt="a">
+</section>
 
