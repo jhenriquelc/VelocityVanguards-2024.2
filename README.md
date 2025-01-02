@@ -29,7 +29,6 @@ Site de imobiliária para os moradores da cidade de Cornélio Procópio, tendo c
 ### Gerenciais
 
 - [Guia de Contribuição](CONTRIBUTING.md)
-- [Guia de Desenvolvimento do Site](Site/README.md)
 
 ### Requisitos de Usuário
 
@@ -37,7 +36,7 @@ Site de imobiliária para os moradores da cidade de Cornélio Procópio, tendo c
 - [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
 
-### Documentação BD
+### Técnico
 
-- [DER](<DocumentacaoBD/DER.png>)
-- [Código de Criação Do Banco de Dados](<DocumentacaoBD/CREATE.sql>)
+- [Banco de Dados](<Banco de Dados/README.md>)
+- [Guia de Desenvolvimento do Site](Site/README.md)
