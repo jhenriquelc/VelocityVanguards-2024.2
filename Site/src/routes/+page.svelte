@@ -1,4 +1,5 @@
 <script>
+	import { Heading, P } from 'flowbite-svelte';
 	import VvHeader from '$lib/VvHeader.svelte';
 	import VvFooter from '$lib/VvFooter.svelte';
 	import VvHero from './VvHero.svelte';
