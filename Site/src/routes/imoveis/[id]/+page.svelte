@@ -1,7 +1,5 @@
 <script>
-    import { Carousel } from "flowbite-svelte";
     let {data} = $props();
-
 </script>
 
 <style>
