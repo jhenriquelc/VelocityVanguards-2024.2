@@ -61,7 +61,7 @@
     }
 
     .vendas-em-destaque{
-        margin-top: 2rem;
+        padding-top: 2rem;
         font-size: 2rem;
         text-align: center;
         margin-bottom: 3rem;

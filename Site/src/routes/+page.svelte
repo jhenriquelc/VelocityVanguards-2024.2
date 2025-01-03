@@ -1,6 +1,6 @@
 <script>
 	// @ts-nocheck
-	import VvHero from '../lib/VvHero.svelte';
+	import VvHero from './VvHero.svelte'
 	import VvHeader from '$lib/VvHeader.svelte';
 	import { P, Heading } from 'flowbite-svelte';
 	import Cards from '$lib/CardsVendaEmDestaque.svelte';
@@ -11,12 +11,16 @@
 
 <VvHeader></VvHeader>
 
+<section>
 	<VvHero>
 		<div class="m-8">
 			<Heading class="mb-4 text-center">Avance na vida.</Heading>
 			<P>Descubra como a Vanguard lhe põe à frente do mercado imobiliário.</P>
 		</div>
 	</VvHero>
+</section>
 
-<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
+<section class="bg-gray-50">
+	<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
+</section>
 	
