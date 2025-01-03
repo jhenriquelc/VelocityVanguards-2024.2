@@ -1,9 +1,13 @@
 <script>
-    import { Footer, P, Hr } from 'flowbite-svelte';
+	import { Footer, FooterCopyright, Hr } from 'flowbite-svelte';
 </script>
 
-<Footer class="flex flex-col items-center justify-center">
-    <Hr classHr="my-8 w-full h-1"/>
-    <P>Imobiliária Vanguard</P>
-    <P>Rua ??? - Cornélio Procópio, PR.</P>
+<Hr classHr="w-full h-0.5 m-0" />
+
+<Footer class="my-8">
+	<FooterCopyright
+		by="Imobiliária Vanguard"
+		year={2025}
+		copyrightMessage="Todos os direitos reservados."
+	/>
 </Footer>
