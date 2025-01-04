@@ -6,36 +6,7 @@
 </script>
 
 <style>
-    .grid {
-        display: grid;
-        justify-items: stretch;
-        align-items: stretch;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        width:100%;
-    }
-
-    .grid-item{
-        display: flex;
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-    }
-
-    .nome-imovel{
-        color: rgb(48, 48, 48);
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .rua-bairro-imovel{
-        margin-bottom: 0.3rem;
-    }
     
-    .valor-imovel{
-        margin-bottom: 1rem;  
-    }
-
     p{
         text-align: justify;
     }
@@ -56,56 +27,30 @@
         text-overflow: ellipsis;
     }
 
-    .botao-saiba-mais{
-        font-weight: bold;
-    }
-
-    .vendas-em-destaque{
-        padding-top: 2rem;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    
-    .section-vendas-em-destaque{
-        margin-left: 8rem;
-        margin-right: 8rem;
-    }
-
-    .div-botao{
-        margin-top: 2rem;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-    }
-
-
 </style>
 
-<section class="section-vendas-em-destaque">
-    <h2 class="vendas-em-destaque">Imóveis à venda em destaque para Cornélio</h2>
+<section class="xs:mx-12 sm:mx-16 md:mx-32 lg:mx-48">
+    <h2 class="text-center pt-8 text-3xl mb-8 sm:text-3xl">Imóveis à venda em destaque para Cornélio</h2>
 
-    <div class="grid">
+    <div class="place-items-center grid grid-cols-4 gap-4 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {#each listImoveis as imovel}
             {#if imovel.PrecoVenda > 0 && imovel.PrecoVenda !== null}
-                <div class="grid-item">
-                    <Card  img={"imagem2.jpg"}>
+                    <Card class="flex;" img={"imagem2.jpg"}>
                         <div>
-                            <h3 class="nome-imovel two-lines-truncation">{imovel.Titulo}</h3>
-                            <p class="rua-bairro-imovel single-line-truncation"> {`${imovel.RuaNome}, ${imovel.BairroNome} - Cornélio Procópio`}</p>
-                            <p class="valor-imovel">Comprar: {new Intl.NumberFormat('pt-BR', {style: 'currency',
+                            <h3 class="text-xl mb-4 text-[#303030] two-lines-truncation">{imovel.Titulo}</h3>
+                            <p class="mb-1 single-line-truncation"> {`${imovel.RuaNome}, ${imovel.BairroNome} - Cornélio Procópio`}</p>
+                            <p class="mb-4">Comprar: {new Intl.NumberFormat('pt-BR', {style: 'currency',
                                 currency: 'BRL',
                             }).format(imovel.PrecoVenda)}</p>
                         </div>
-                        <div class="div-botao">
+                        <div class="flex justify-center items-center">
                             <a href="/imoveis/{imovel.ID_Imovel}">
-                                <Button>
-                                    <p class="botao-saiba-mais" > Saiba mais sobre esse imóvel</p>
+                                <Button class="text-center font-bold">
+                                    Saiba mais sobre esse imóvel
                                 </Button>
                             </a>
                         </div>
                     </Card>
-                </div>
             {/if}
         {/each}
     </div> 

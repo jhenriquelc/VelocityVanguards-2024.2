@@ -9,7 +9,7 @@
 
 </style>
 
-<section class="imagem-e-preco">
+<section class="mx-64">
     <h2>
         {data.nomeImovel}
     </h2>
