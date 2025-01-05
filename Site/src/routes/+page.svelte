@@ -21,6 +21,8 @@
 </section>
 
 <section class="bg-gray-50">
-	<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
+	<div class="xs:mx-12 sm:mx-16 md:mx-32 lg:mx-48">
+		<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
+	</div>
 </section>
 	
