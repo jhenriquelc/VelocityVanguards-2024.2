@@ -30,7 +30,6 @@ export default {
 			}, 
 			screens:{
 				'xs': '320px',
-				'mm': '1024px'
 			}
 			
 		}

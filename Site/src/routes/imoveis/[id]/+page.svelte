@@ -2,7 +2,7 @@
     import { Card, Carousel } from "flowbite-svelte";
     import { Input, Label, Helper } from 'flowbite-svelte';
     import DadosDoImovel from "$lib/DadosDoImovel.svelte";
-	import ContatoProduto from "$lib/ContatoProduto.svelte";
+    import ContatoProduto from "$lib/ContatoProduto.svelte";
     let {data} = $props();
 
     const grid = `grid grid-cols-[3fr_1fr] gap-12 

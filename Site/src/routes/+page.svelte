@@ -1,6 +1,6 @@
 <script>
 	// @ts-nocheck
-	import VvHero from './VvHero.svelte'
+	import VvHero from '$lib/VvHero.svelte'
 	import VvHeader from '$lib/VvHeader.svelte';
 	import { P, Heading } from 'flowbite-svelte';
 	import Cards from '$lib/CardsVendaEmDestaque.svelte';
