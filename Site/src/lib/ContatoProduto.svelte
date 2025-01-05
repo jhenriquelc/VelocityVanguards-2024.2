@@ -3,10 +3,17 @@
     import { Textarea } from 'flowbite-svelte';
 </script>
 
+<style>
+    .single-line-truncation{
+       white-space: nowrap; /* Prevent wrapping */
+       overflow: hidden; /* Hide overflowing content */
+       text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+   }
+</style>
+
 <section class="flex justify-center">
-    <Card class="w-full">
-        <form>
-            <h2>Contate-nos</h2>
+        <form class="bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm w-full">
+            <h2 class="single-line-truncation">Contate-nos</h2>
             <Label for="nome" class="mb-2">Nome</Label>
             <Input class="mb-2" type="text" id="first_name" placeholder="John" required />
             <Label for="email" class="mb-2">Email</Label>
@@ -19,5 +26,4 @@
                 <Button class="mb-2 w-full" type="submit">Submit</Button>
             </div>
         </form>
-    </Card>
 </section>
