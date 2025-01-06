@@ -12,54 +12,16 @@
         margin-bottom: 0.2rem;
     }
 
-    .center-text{
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
 
     .cifrao{
         color: #CC4522;
         font-weight: bolder;
     }
 
-    .fixed{
-        position: fixed;
-    }
-
-    .flex-horizontal{
-        flex-direction: row;
-    }
-    
-    .flex{
-        display: flex;
-    }
-
-    .grid-2{
-        display: grid;
-        grid-template-columns: 1fr 5fr;
-        gap: 5rem;
-    }
-
-    .grid-4-equal{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 4rem;
-    }
-
 	.main{
 		background-color: rgb(238, 238, 238);
 	}
     
-
-    .margin{
-        margin-left: 8rem;
-        margin-right: 8rem;
-    }
-
-    .margin-right-2rem{
-        margin-right: 2rem;
-    }
 
     .rua-bairro-imovel{
         margin-bottom: 0.2rem;
@@ -78,40 +40,73 @@
 
 </style>
 
-<div class="main">
-    <div class="margin grid-2 ">
-        <p class="imoveis-em-cp">Imóveis em Cornélio Procópio - PR</p>
-        <div class="flex flex-horizontal center-text">
-            <p class="margin-right-2rem">Comprar</p>
-            <p>Alugar</p>
-        </div>
-    </div>
 
-    <div class="margin grid-2 fixed">        
-        
-        <Filtros></Filtros>
+<div class="main ">
+    <div class="
+    lg:mx-48
+    lg:mx-48
+    md:mx-48
+    sm:mx-32
+    xs:mx-16
+    ">
 
-        <div class="grid-4-equal">
-            <Card img={'imagem2.jpg'}>
-                <div>
-                    <h3 class="categoria-imovel">{"Apartamento"}</h3>
-                    <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                    <p class="cifrao">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
-                        currency: 'BRL',
-                    }).format(1000).split(/\s+/)[1]}</span></p>
-                </div>
-            </Card>
+
+
+        <div class="flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xs:flex-col pt-8">        
+            
+            <div class=" 
+            xl:w-1/4
+            lg:w-1/3
+            md:w-full mb-4
+            sm:w-full mb-4
+            xs:w-full mb-4 ">
+                <Filtros></Filtros>
+            </div>
+
+            <div class="grid 
+            xl:grid-cols-3 
+            lg:grid-cols-2 lg:ml-4
+            md:grid-cols-2 md:ml-0
+            sm:grid-cols-1 
+            xs:grd-cols-1 
+            gap-4 
+            ">
                 
-            <Card>
-
-            </Card>
-            <Card>
-
-            </Card>
-            <Card>
-
-            </Card>
-        
+                <div class="flex items-center justify-center"> 
+                    <Card img={'imagem2.jpg'}>
+                        <div>
+                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
+                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
+                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                currency: 'BRL',
+                            }).format(10200000).split(/\s+/)[1]}</span></p>
+                        </div>
+                    </Card>
+                </div>
+                    
+                <div class="flex items-center justify-center"> 
+                    <Card img={'imagem2.jpg'}>
+                        <div>
+                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
+                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
+                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                currency: 'BRL',
+                            }).format(10200000).split(/\s+/)[1]}</span></p>
+                        </div>
+                    </Card>
+                </div>
+                <div class="flex items-center justify-center"> 
+                    <Card img={'imagem2.jpg'}>
+                        <div>
+                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
+                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
+                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                currency: 'BRL',
+                            }).format(10200000).split(/\s+/)[1]}</span></p>
+                        </div>
+                    </Card>
+                </div>
+            </div>
         </div>
     </div>
 </div>

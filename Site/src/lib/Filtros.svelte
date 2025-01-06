@@ -1,6 +1,14 @@
 <script>
+// @ts-nocheck
 
-	import { Button, Card } from "flowbite-svelte";
+
+	import { Button, GradientButton } from "flowbite-svelte";
+
+    let botaoComprar = "primary";
+    let botaoAlugar = "alternative";
+
+    //Se comprar for true, usar uma QUERY (só compra), senão usar OUTRA (só busca).
+    let comprar = true;
 
 </script>
 <style>
@@ -39,7 +47,7 @@
 </style>
 
 
-<Card>
+<div class="bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm w-1/ ">
     <form  class="flex flex-vertical" action="">
         
         <label>Localização</label>
@@ -54,10 +62,16 @@
                 <input class="input-preco" type="text">
                 <p>Max:</p>
                 <input class="input-preco" type="text">
-
         </div>
+
+        <div class="grid grid-cols-2 mb-4 gap-2">
+            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative";}} color={botaoComprar}>Comprar</Button>
+            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary";}} color={botaoAlugar}>Alugar</Button>
+        </div>
+
+ 
         <Button>
             <p>BUSCAR</p>
         </Button>
     </form>
-</Card>
+</div>
