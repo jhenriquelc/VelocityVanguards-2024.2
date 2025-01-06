@@ -1,5 +1,5 @@
 <script>
-    let imovelIsAlugavel = true;
+    let imovelIsAlugavel = false;
     let imovelIsAVenda = true;
     let isApartamento = true;
 </script>
@@ -62,8 +62,8 @@
 
 {:else}
 
-    <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+    <p class="text-[#CC4522] font-bold single-line-truncation text-center">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
         currency: 'BRL',
-    }).format(1.200).split(/\s+/)[1]}</span>/mês</p>
-    
+    }).format(1200).split(/\s+/)[1]}</span>/mês</p>
+
 {/if}
