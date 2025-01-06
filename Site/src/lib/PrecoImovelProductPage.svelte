@@ -44,11 +44,26 @@
 <p class="text-center mb-4">Aquisição:</p>
 
 {#if imovelIsAlugavel && imovelIsAVenda}
-	<p class="text-center">R$ 500.000,00</p>
-	<p class="text-center">ou</p>
-    <p class="text-center">R$ 1.500,00/mês</p>
-{:else if imovelIs < 5}
-	<p>{count} is less than 5</p>
+    <p class="text-[#CC4522] font-bold single-line-truncation text-center text-lg">R$ <span class="text-[1.4rem] single-line-truncation">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+        currency: 'BRL',
+    }).format(10200000).split(/\s+/)[1]}</span></p>
+
+	<p class="text-center text-[#CC4522]">ou</p>
+
+    <p class="text-[#CC4522] font-bold single-line-truncation text-center text-sm">R$ <span class="text-[1rem] single-line-truncation">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+        currency: 'BRL',
+    }).format(12000).split(/\s+/)[1]}</span>/mês</p>
+    
+{:else if imovelIsAVenda}
+
+    <p class="text-[#CC4522] font-bold single-line-truncation text-center text-lg">R$ <span class="text-[1.4rem] single-line-truncation">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+        currency: 'BRL',
+    }).format(10200000).split(/\s+/)[1]}</span></p>
+
 {:else}
-	<p>{count} is between 5 and 10</p>
+
+    <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+        currency: 'BRL',
+    }).format(1.200).split(/\s+/)[1]}</span>/mês</p>
+    
 {/if}

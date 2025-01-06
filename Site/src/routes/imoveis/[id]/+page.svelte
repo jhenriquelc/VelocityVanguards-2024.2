@@ -13,7 +13,8 @@
         xs:grid-cols-1 
         sm:grid-cols-1 
         md:grid-cols-1
-        lg:grid-cols-[3fr_1fr]`
+        lg:grid-cols-1
+        xl:grid-cols-[3fr_1fr]`
 
     const cardCss = `bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm`;
 </script>

@@ -6,26 +6,12 @@
 
 <style>
 
-    .categoria-imovel{
-        font-size: 1.2rem;
-        color: black;
-        margin-bottom: 0.2rem;
-    }
-
-
-    .cifrao{
-        color: #CC4522;
-        font-weight: bolder;
-    }
 
 	.main{
 		background-color: rgb(238, 238, 238);
 	}
     
 
-    .rua-bairro-imovel{
-        margin-bottom: 0.2rem;
-    }
     .single-line-truncation{
         white-space: nowrap; /* Prevent wrapping */
         overflow: hidden; /* Hide overflowing content */
@@ -35,7 +21,6 @@
     .valor-imovel{
         font-size: 1.4rem;
     }
-
 
 
 </style>
@@ -75,37 +60,14 @@
                 <div class="flex items-center justify-center"> 
                     <Card img={'imagem2.jpg'}>
                         <div>
-                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
-                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                            <h3 class="mb-1 text-black text-xl">{"Apartamento"}</h3>
+                            <p class="mb-1 single-line-truncation">Jardim Azul - Cornélio Procópio</p>
+                            <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
                                 currency: 'BRL',
                             }).format(10200000).split(/\s+/)[1]}</span></p>
                         </div>
                     </Card>
-                </div>
-                    
-                <div class="flex items-center justify-center"> 
-                    <Card img={'imagem2.jpg'}>
-                        <div>
-                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
-                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
-                                currency: 'BRL',
-                            }).format(10200000).split(/\s+/)[1]}</span></p>
-                        </div>
-                    </Card>
-                </div>
-                <div class="flex items-center justify-center"> 
-                    <Card img={'imagem2.jpg'}>
-                        <div>
-                            <h3 class="categoria-imovel">{"Apartamento"}</h3>
-                            <p class="rua-bairro-imovel single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                            <p class="cifrao single-line-truncation">R$ <span class="valor-imovel">{new Intl.NumberFormat('pt-BR', {style: 'currency',
-                                currency: 'BRL',
-                            }).format(10200000).split(/\s+/)[1]}</span></p>
-                        </div>
-                    </Card>
-                </div>
+                </div>    
             </div>
         </div>
     </div>
