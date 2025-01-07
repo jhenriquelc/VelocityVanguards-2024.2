@@ -1,4 +1,9 @@
-<div class="flex flex-col items-center mb-8">
-    <h2>Descrição do imóvel</h2>
+<script>
+    let {dados} = $props();
+    console.log(dados);
+</script>
+
+<div class="flex flex-col mb-8">
+    <h2 class="text-center">Descrição do imóvel</h2>
+    <p class="text-justify">{dados.Descricao}</p>
 </div>
-<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ea eveniet quia sed voluptatibus consequatur magni, quos ullam veniam suscipit incidunt. Maxime ipsum deleniti assumenda magnam suscipit ipsam natus fugit? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam dolorem adipisci in sit dicta incidunt nihil minima natus dolores cum similique, at eos sed debitis repudiandae libero recusandae nisi. Quas? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit tenetur atque dicta veritatis quibusdam voluptatum? In accusantium, aperiam repellat error hic veniam rem modi voluptatem! Natus amet voluptas fugit laudantium.</p>

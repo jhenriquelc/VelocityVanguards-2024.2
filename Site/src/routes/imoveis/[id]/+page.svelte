@@ -8,7 +8,7 @@
 	import LocalizacaoImovel from "$lib/LocalizacaoImovel.svelte";
 	import PrecoImovelProductPage from "$lib/PrecoImovelProductPage.svelte";
     let {data} = $props();
-
+    let dados = data.dadosImovel[0];
     const grid = `grid grid-cols-[3fr_1fr] gap-12 
         xs:grid-cols-1 
         sm:grid-cols-1 
@@ -41,18 +41,18 @@
             </figure>
 
             <div class={cardCss}>
-                <PrecoImovelProductPage></PrecoImovelProductPage>
+                <PrecoImovelProductPage {dados}></PrecoImovelProductPage>
             </div>
         </div>
         
         <div class={grid}>
             <div class="flex flex-col gap-12">
                 <div class={cardCss}>
-                    <DadosDoImovel></DadosDoImovel>
+                    <DadosDoImovel {dados}></DadosDoImovel>
                 </div>
 
                 <div class={cardCss}>
-                    <DescricaoImovel></DescricaoImovel>
+                    <DescricaoImovel {dados}></DescricaoImovel>
                 </div>
 
                 <div class={cardCss}>

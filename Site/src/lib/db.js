@@ -9,7 +9,7 @@ const pool = mariadb.createPool({
 })
 
 // @ts-ignore
-export async function ObterDados(query, userInput) {
+export async function ObterDados(query, userInput = []) {
     let conn;
     try {
       conn = await pool.getConnection();

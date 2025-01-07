@@ -15,9 +15,9 @@
         <form class="bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm w-full">
             <h2 class="single-line-truncation">Contate-nos</h2>
             <Label for="nome" class="mb-2">Nome</Label>
-            <Input class="mb-2" type="text" id="first_name" placeholder="John" required />
+            <Input class="mb-2" type="text" id="first_name" required />
             <Label for="email" class="mb-2">Email</Label>
-            <Input class="mb-2" type="text" id="email" placeholder="John" required />
+            <Input class="mb-2" type="text" id="email" required />
             <Label for="telefone" class="mb-2">Telefone</Label>
             <Input class="mb-2" type="tel" id="telefone" placeholder="(43) 99999-9999" required />
             <Label for="mensagem" class="mb-2">Mensagem</Label>
