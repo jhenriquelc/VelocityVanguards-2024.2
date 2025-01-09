@@ -1,8 +1,32 @@
 <script>
+// @ts-nocheck
+
 	import {Button, Card } from "flowbite-svelte";
     import Filtros from "$lib/Filtros.svelte";
     let {data} = $props();
-    let CompraOuVenda = $state(1);
+    let listaImoveis = data.imoveis;
+    console.log(listaImoveis);
+
+    let comprar = $state(true);
+    let pExibirValor = $state(true);
+
+    let queryParams = {
+        localizacao: "",
+        tipo: "",
+        min: 0,
+        max: 0,
+    }
+
+    function modificarPExibirValor(){
+        if(comprar === true){
+            pExibirValor = true;
+        }else{
+            pExibirValor = false;
+        }
+        console.log(comprar);
+    }
+
+
 </script>
 
 <style>
@@ -40,7 +64,7 @@
             md:w-full mb-4
             sm:w-full mb-4
             xs:w-full mb-4 ">
-                <Filtros bind:CompraOuVenda></Filtros>
+                <Filtros bind:comprar {modificarPExibirValor}></Filtros>
             </div>
 
             <div class="grid 
@@ -53,7 +77,7 @@
             ">
                 
                 <div class="flex items-center justify-center"> 
-                    {#each data.imoveis as imovel}
+                    {#each listaImoveis as imovel}
                     <Card img={'imagem2.jpg'}>
                         <div>
                             <div class="grid grid-cols-2 mb-1 ">
@@ -68,11 +92,21 @@
                                     {/if}
                                 </div>        
                             </div>
+                            
                             <p class="mb-1 single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                            <p>{CompraOuVenda}</p>
-                            <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
-                                currency: 'BRL',
-                            }).format(imovel.Preco).split(/\s+/)[1]}</span></p>
+                            {#if pExibirValor === true}
+                                {console.log(imovel.PrecoVenda)}
+
+                                <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                    currency: 'BRL',
+                                }).format(imovel.PrecoVenda).split(/\s+/)[1]}</span></p>
+                            {:else}
+                                {console.log(imovel.PrecoAluguel)}
+                                <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
+                                    currency: 'BRL',
+                                }).format(imovel.PrecoAluguel).split(/\s+/)[1]}</span></p>
+                            {/if}
+                            
                         </div>
                     </Card>
                     {/each}

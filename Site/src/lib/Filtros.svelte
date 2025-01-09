@@ -3,13 +3,11 @@
 
 
 	import { Button, GradientButton } from "flowbite-svelte";
-
     let botaoComprar = $state("primary");
     let botaoAlugar = $state("alternative");
-    let {CompraOuVenda = $bindable()} = $props();
-
+    
     //Se comprar for true, usar uma QUERY (só compra), senão usar OUTRA (só busca).
-    let comprar = true;
+    let {comprar = $bindable(), modificarPExibirValor} = $props();
 
 </script>
 <style>
@@ -23,6 +21,9 @@
         margin-bottom: 0.7rem;
     }
 
+    .flex{
+        display: flex;
+    }
 
     .flex-vertical{
         flex-direction: column;
@@ -37,6 +38,7 @@
     .input-preco{
         width: 100%;
     }
+
 
     .div-preco{
         margin-bottom: 0.7rem;
@@ -62,12 +64,12 @@
         </div>
 
         <div class="grid grid-cols-2 mb-4 gap-2">
-            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; CompraOuVenda=1;}} color={botaoComprar}>Comprar</Button>
-            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; CompraOuVenda=2;}} color={botaoAlugar}>Alugar</Button>
+            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; comprar = true; console.log(comprar)}} color={botaoComprar} >Comprar</Button>
+            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; comprar = false;  console.log(comprar)}} color={botaoAlugar} >Alugar</Button>
         </div>
 
  
-        <Button>
+        <Button on:click={modificarPExibirValor}>
             <p>BUSCAR</p>
         </Button>
     </form>
