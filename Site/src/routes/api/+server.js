@@ -9,7 +9,6 @@ export async function GET({url}){
     let max = url.searchParams.get('max');
     let negocio = url.searchParams.get('negocio');
     let tipoDeNegocio = 'PrecoVenda';
-
     
     min = parseInt(min);
     max = parseInt(max);
@@ -20,10 +19,13 @@ export async function GET({url}){
     if(Number.isNaN(max)){
         max = 2147483647; 
     }
-    
-    if(!negocio){
+    console.log(negocio);
+
+    if(negocio === 'false'){
         tipoDeNegocio = 'PrecoAluguel';
     }
+
+    console.log(tipoDeNegocio);
 
     let query = `
     SELECT 

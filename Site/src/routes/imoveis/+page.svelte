@@ -5,20 +5,19 @@
     import Filtros from "$lib/Filtros.svelte";
     let {data} = $props();
     let listaImoveis = $state(data.imoveis);
-    
-    let comprar = $state(true);
-    let pExibirValor = $state(true);
+    let comprar = $state('true');
 
     let urlParams = $state({
         localizacao: "",
         tipo: "",
         min: "", 
         max: "",
-        negocio: 0
+        negocio: 'true'
     })
     
     async function fetchData() {
-    urlParams.negocio = pExibirValor ? 1 : 0;
+
+    console.log("P" + urlParams.negocio);
     let params = new URLSearchParams(urlParams);
 
     console.log('Fetching with params:', params.toString());
@@ -26,6 +25,8 @@
     const response = await fetch(`/api?${params.toString()}`)
     .then(response => response.json())
     .then(data => {console.log(listaImoveis); listaImoveis = data});
+
+    comprar = urlParams.negocio;
     }
 
 
@@ -97,7 +98,7 @@
                             </div>
                             
                             <p class="mb-1 single-line-truncation">Jardim Azul - Cornélio Procópio</p>
-                            {#if pExibirValor === true}
+                            {#if comprar === 'true'}
                                 <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
                                     currency: 'BRL',
                                 }).format(imovel.PrecoVenda).split(/\s+/)[1]}</span></p>

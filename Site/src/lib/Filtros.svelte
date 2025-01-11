@@ -5,7 +5,7 @@
 	import { Button, GradientButton } from "flowbite-svelte";
     let botaoComprar = $state("primary");
     let botaoAlugar = $state("alternative");
-    let {urlParams = $bindable(), fetchData, comprar = $bindable()} = $props();
+    let {urlParams = $bindable(), fetchData} = $props();
     
     
     //Se comprar for true, usar uma QUERY (só compra), senão usar OUTRA (só busca).
@@ -64,8 +64,8 @@
         </div>
 
         <div class="grid grid-cols-2 mb-4 gap-2">
-            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; comprar = true;}} color={botaoComprar} >Comprar</Button>
-            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; comprar = false;}} color={botaoAlugar} >Alugar</Button>
+            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; urlParams.negocio = 'true'; console.log(urlParams.negocio)}} color={botaoComprar} >Comprar</Button>
+            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; urlParams.negocio = 'false'; console.log(urlParams.negocio)}} color={botaoAlugar} >Alugar</Button>
         </div>
  
         <Button type="submit" on:click={fetchData}>
