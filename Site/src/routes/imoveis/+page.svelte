@@ -1,29 +1,31 @@
 <script>
 // @ts-nocheck
 
-	import {Button, Card } from "flowbite-svelte";
+	import {Button, Card, P } from "flowbite-svelte";
     import Filtros from "$lib/Filtros.svelte";
     let {data} = $props();
-    let listaImoveis = data.imoveis;
-    console.log(listaImoveis);
-
+    let listaImoveis = $state(data.imoveis);
+    
     let comprar = $state(true);
     let pExibirValor = $state(true);
 
-    let queryParams = {
+    let urlParams = $state({
         localizacao: "",
         tipo: "",
-        min: 0,
-        max: 0,
-    }
+        min: "", 
+        max: "",
+        negocio: 0
+    })
+    
+    async function fetchData() {
+    urlParams.negocio = pExibirValor ? 1 : 0;
+    let params = new URLSearchParams(urlParams);
 
-    function modificarPExibirValor(){
-        if(comprar === true){
-            pExibirValor = true;
-        }else{
-            pExibirValor = false;
-        }
-        console.log(comprar);
+    console.log('Fetching with params:', params.toString());
+    
+    const response = await fetch(`/api?${params.toString()}`)
+    .then(response => response.json())
+    .then(data => {console.log(listaImoveis); listaImoveis = data});
     }
 
 
@@ -45,7 +47,7 @@
 </style>
 
 
-<div class="main ">
+<div class="main">
     <div class="
     lg:mx-48
     lg:mx-48
@@ -64,7 +66,7 @@
             md:w-full mb-4
             sm:w-full mb-4
             xs:w-full mb-4 ">
-                <Filtros bind:comprar {modificarPExibirValor}></Filtros>
+                <Filtros {urlParams} {fetchData}></Filtros>
             </div>
 
             <div class="grid 
@@ -76,8 +78,9 @@
             gap-4 
             ">
                 
-                <div class="flex items-center justify-center"> 
                     {#each listaImoveis as imovel}
+                    <div class="flex items-center justify-center"> 
+
                     <Card img={'imagem2.jpg'}>
                         <div>
                             <div class="grid grid-cols-2 mb-1 ">
@@ -95,13 +98,10 @@
                             
                             <p class="mb-1 single-line-truncation">Jardim Azul - Cornélio Procópio</p>
                             {#if pExibirValor === true}
-                                {console.log(imovel.PrecoVenda)}
-
                                 <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
                                     currency: 'BRL',
                                 }).format(imovel.PrecoVenda).split(/\s+/)[1]}</span></p>
                             {:else}
-                                {console.log(imovel.PrecoAluguel)}
                                 <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
                                     currency: 'BRL',
                                 }).format(imovel.PrecoAluguel).split(/\s+/)[1]}</span></p>
@@ -109,8 +109,9 @@
                             
                         </div>
                     </Card>
-                    {/each}
                 </div>    
+
+                    {/each}
             </div>
         </div>
     </div>

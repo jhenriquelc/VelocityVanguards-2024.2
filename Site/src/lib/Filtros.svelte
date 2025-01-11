@@ -5,10 +5,10 @@
 	import { Button, GradientButton } from "flowbite-svelte";
     let botaoComprar = $state("primary");
     let botaoAlugar = $state("alternative");
+    let {urlParams = $bindable(), fetchData, comprar = $bindable()} = $props();
+    
     
     //Se comprar for true, usar uma QUERY (só compra), senão usar OUTRA (só busca).
-    let {comprar = $bindable(), modificarPExibirValor} = $props();
-
 </script>
 <style>
 
@@ -47,29 +47,28 @@
 
 
 <div class="bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm w-1/ ">
-    <form  class="flex flex-vertical" action="">
+    <form  class="flex flex-vertical">
         
-        <label>Localização</label>
-        <input type="text">
+        <label for="localizacao">Localização</label>
+        <input bind:value={urlParams.localizacao} name="localizacao" type="text">
 
-        <label for="">Tipo de Imovel</label>
-        <input type="text">
+        <label for="tipo">Tipo de Imovel</label>
+        <input bind:value={urlParams.tipo} name="tipo" type="text">
 
-        <label for="">Preco (R$)</label>
+        <p class="mb-3">Preco (R$)</p>
         <div class="grid-4 div-preco">
-                <p>Min:</p>
-                <input class="input-preco" type="text">
-                <p>Max:</p>
-                <input class="input-preco" type="text">
+                <label for="min">Mín:</label>
+                <input bind:value={urlParams.min}  name="min" class="input-preco" type="text">
+                <label for="max">Max:</label>
+                <input bind:value={urlParams.max} name="max" class="input-preco" type="text">
         </div>
 
         <div class="grid grid-cols-2 mb-4 gap-2">
-            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; comprar = true; console.log(comprar)}} color={botaoComprar} >Comprar</Button>
-            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; comprar = false;  console.log(comprar)}} color={botaoAlugar} >Alugar</Button>
+            <Button on:click={() => {botaoComprar="primary"; botaoAlugar="alternative"; comprar = true;}} color={botaoComprar} >Comprar</Button>
+            <Button on:click={() => {botaoComprar="alternative"; botaoAlugar="primary"; comprar = false;}} color={botaoAlugar} >Alugar</Button>
         </div>
-
  
-        <Button on:click={modificarPExibirValor}>
+        <Button type="submit" on:click={fetchData}>
             <p>BUSCAR</p>
         </Button>
     </form>

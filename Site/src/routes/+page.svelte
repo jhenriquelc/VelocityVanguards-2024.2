@@ -6,7 +6,6 @@
 	import Cards from '$lib/CardsVendaEmDestaque.svelte';
 	import CardsVendaEmDestaque from '$lib/CardsVendaEmDestaque.svelte';
 	let {data} = $props();
-	console.log(data);
 </script>
 
 <VvHeader></VvHeader>

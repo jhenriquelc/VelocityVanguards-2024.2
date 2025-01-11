@@ -17,6 +17,7 @@ let queryCardsVendaEmDestaque = `
     `
 
 export async function load(){
+    
     const listImoveis = await ObterDados(queryCardsVendaEmDestaque);
     return {
         listImoveis: listImoveis
