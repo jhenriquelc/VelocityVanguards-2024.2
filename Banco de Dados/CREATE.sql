@@ -4,6 +4,8 @@ USE ImobiliariaVanguard;
 CREATE TABLE Funcionario(
    	CPF CHAR(11),
     HashSenha CHAR(64),	/*Assumindo SHA 256*/
+    TokenSessao CHAR(64);
+	DataSessao DATETIME;
     PRIMARY KEY (CPF)
 );
 
