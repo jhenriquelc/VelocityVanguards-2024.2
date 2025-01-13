@@ -19,13 +19,22 @@ export async function GET({url}){
     if(Number.isNaN(max)){
         max = 2147483647; 
     }
+    tipo = tipo.toLowerCase();
+    console.log(tipo);
+
+    if( tipo === 'comercial'){
+        tipo = 1;
+    }else{
+        tipo = 2;
+    }
+
     console.log(negocio);
 
     if(negocio === 'false'){
         tipoDeNegocio = 'PrecoAluguel';
     }
 
-    console.log(tipoDeNegocio);
+    console.log(tipo);
 
     let query = `
     SELECT 
@@ -40,10 +49,11 @@ export async function GET({url}){
     JOIN Bairro ON Imovel.ID_Bairro = Bairro.ID_Bairro
     JOIN Rua ON Imovel.ID_Rua = Rua.ID_Rua
     JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
-    WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND 
+    WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND
+    Imovel.Tipo = ? AND 
     (Bairro.Nome LIKE ? OR Rua.Nome LIKE ?)
     ;`
 
-    let imoveis = await ObterDados(query, [min, max, `%${localizacao}%`, `%${localizacao}%`]);
+    let imoveis = await ObterDados(query, [min, max, tipo,  `%${localizacao}%`, `%${localizacao}%`]);
     return json(imoveis);
 }

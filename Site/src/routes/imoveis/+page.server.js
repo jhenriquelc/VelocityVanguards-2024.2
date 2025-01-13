@@ -5,6 +5,7 @@ export async function load({ url }){
 
     let query = `
     SELECT 
+    Imovel.ID_Imovel,
     Imovel.PrecoVenda, 
     Imovel.PrecoAluguel, 
     Imovel.Categoria,
