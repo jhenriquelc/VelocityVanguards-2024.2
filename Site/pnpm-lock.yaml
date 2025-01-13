@@ -10,16 +10,20 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      mariadb:
+        specifier: ^3.4.0
+        version: 3.4.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
-        version: 3.3.1(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10))
+        version: 3.3.1(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))
       '@sveltejs/kit':
         specifier: ^2.15.1
-        version: 2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10)
+        version: 2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.4
-        version: 4.0.4(svelte@5.16.2)(vite@5.4.10)
+        version: 4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       '@tailwindcss/forms':
         specifier: ^0.5.9
         version: 0.5.9(tailwindcss@3.4.17)
@@ -67,7 +71,7 @@ importers:
         version: 5.7.2
       vite:
         specifier: ^5.0.3
-        version: 5.4.10
+        version: 5.4.10(@types/node@22.10.5)
 
 packages:
 
@@ -418,6 +422,12 @@ packages:
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
+  '@types/geojson@7946.0.15':
+    resolution: {integrity: sha512-9oSxFzDCT2Rj6DfcHF8G++jxBKS7mBqXl5xrRW+Kbvjry6Uduya2iiwqHPhVXpasAVMBYKkEPGgKhd3+/HZ6xA==}
+
+  '@types/node@22.10.5':
+    resolution: {integrity: sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==}
+
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
@@ -553,6 +563,10 @@ packages:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
 
+  denque@2.1.0:
+    resolution: {integrity: sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==}
+    engines: {node: '>=0.10'}
+
   devalue@5.1.1:
     resolution: {integrity: sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==}
 
@@ -676,6 +690,10 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+  iconv-lite@0.6.3:
+    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+    engines: {node: '>=0.10.0'}
+
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
 
@@ -747,6 +765,10 @@ packages:
 
   magic-string@0.30.12:
     resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
+
+  mariadb@3.4.0:
+    resolution: {integrity: sha512-hdRPcAzs+MTxK5VG1thBW18gGTlw6yWBe9YnLB65GLo7q0fO5DWsgomIevV/pXSaWRmD3qi6ka4oSFRTExRiEQ==}
+    engines: {node: '>= 14'}
 
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
@@ -984,6 +1006,9 @@ packages:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
 
+  safer-buffer@2.1.2:
+    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+
   set-cookie-parser@2.7.1:
     resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
 
@@ -1108,6 +1133,9 @@ packages:
     resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   update-browserslist-db@1.1.1:
     resolution: {integrity: sha512-R8UzCaa9Az+38REPiJ1tXlImTJXlVfgHZsglwBD/k6nj76ctsH1E3q4doGrukiLQd3sGQYu56r5+lo5r94l29A==}
@@ -1381,14 +1409,14 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.24.1':
     optional: true
 
-  '@sveltejs/adapter-auto@3.3.1(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10))':
+  '@sveltejs/adapter-auto@3.3.1(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))':
     dependencies:
-      '@sveltejs/kit': 2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10)
+      '@sveltejs/kit': 2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       import-meta-resolve: 4.1.0
 
-  '@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10)':
+  '@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 4.0.4(svelte@5.16.2)(vite@5.4.10)
+      '@sveltejs/vite-plugin-svelte': 4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       '@types/cookie': 0.6.0
       cookie: 1.0.2
       devalue: 5.1.1
@@ -1402,27 +1430,27 @@ snapshots:
       sirv: 3.0.0
       svelte: 5.16.2
       tiny-glob: 0.2.9
-      vite: 5.4.10
+      vite: 5.4.10(@types/node@22.10.5)
 
-  '@sveltejs/vite-plugin-svelte-inspector@3.0.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10)':
+  '@sveltejs/vite-plugin-svelte-inspector@3.0.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 4.0.4(svelte@5.16.2)(vite@5.4.10)
+      '@sveltejs/vite-plugin-svelte': 4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       debug: 4.3.7
       svelte: 5.16.2
-      vite: 5.4.10
+      vite: 5.4.10(@types/node@22.10.5)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10)':
+  '@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 3.0.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10))(svelte@5.16.2)(vite@5.4.10)
+      '@sveltejs/vite-plugin-svelte-inspector': 3.0.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5)))(svelte@5.16.2)(vite@5.4.10(@types/node@22.10.5))
       debug: 4.3.7
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.12
       svelte: 5.16.2
-      vite: 5.4.10
-      vitefu: 1.0.3(vite@5.4.10)
+      vite: 5.4.10(@types/node@22.10.5)
+      vitefu: 1.0.3(vite@5.4.10(@types/node@22.10.5))
     transitivePeerDependencies:
       - supports-color
 
@@ -1442,6 +1470,12 @@ snapshots:
   '@types/cookie@0.6.0': {}
 
   '@types/estree@1.0.6': {}
+
+  '@types/geojson@7946.0.15': {}
+
+  '@types/node@22.10.5':
+    dependencies:
+      undici-types: 6.20.0
 
   '@types/resolve@1.20.2': {}
 
@@ -1560,6 +1594,8 @@ snapshots:
       ms: 2.1.3
 
   deepmerge@4.3.1: {}
+
+  denque@2.1.0: {}
 
   devalue@5.1.1: {}
 
@@ -1713,6 +1749,10 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  iconv-lite@0.6.3:
+    dependencies:
+      safer-buffer: 2.1.2
+
   import-meta-resolve@4.1.0: {}
 
   is-binary-path@2.1.0:
@@ -1768,6 +1808,14 @@ snapshots:
   magic-string@0.30.12:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  mariadb@3.4.0:
+    dependencies:
+      '@types/geojson': 7946.0.15
+      '@types/node': 22.10.5
+      denque: 2.1.0
+      iconv-lite: 0.6.3
+      lru-cache: 10.4.3
 
   merge2@1.4.1: {}
 
@@ -1935,6 +1983,8 @@ snapshots:
     dependencies:
       mri: 1.2.0
 
+  safer-buffer@2.1.2: {}
+
   set-cookie-parser@2.7.1: {}
 
   shebang-command@2.0.0:
@@ -2097,6 +2147,8 @@ snapshots:
 
   typescript@5.7.2: {}
 
+  undici-types@6.20.0: {}
+
   update-browserslist-db@1.1.1(browserslist@4.24.2):
     dependencies:
       browserslist: 4.24.2
@@ -2105,17 +2157,18 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@5.4.10:
+  vite@5.4.10(@types/node@22.10.5):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.24.1
     optionalDependencies:
+      '@types/node': 22.10.5
       fsevents: 2.3.3
 
-  vitefu@1.0.3(vite@5.4.10):
+  vitefu@1.0.3(vite@5.4.10(@types/node@22.10.5)):
     optionalDependencies:
-      vite: 5.4.10
+      vite: 5.4.10(@types/node@22.10.5)
 
   which@2.0.2:
     dependencies:
