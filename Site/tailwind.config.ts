@@ -1,3 +1,4 @@
+
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
@@ -26,7 +27,11 @@ export default {
 					800: '#CC4522',
 					900: '#A5371B'
 				}
+			}, 
+			screens:{
+				'xs': '320px',
 			}
+			
 		}
 	},
 	plugins: [flowbitePlugin, flowbiteTypography, typography, forms]
