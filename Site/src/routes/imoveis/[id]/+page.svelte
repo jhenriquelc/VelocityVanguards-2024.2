@@ -27,11 +27,11 @@
 </script>
 
 
-<div class="bg-gray-50">
+<div class="bg-gray-50 min-h-screen h-fit">
     <div class="xs:mx-12 sm:mx-16 md:mx-32 lg:mx-48 pb-12">
         <div class="{`${grid} mb-12`}" >
             
-            <figure class="flex flex-row gap-4 items-center justify-content">
+            <figure class="flex flex-row md:gap-4 xs:gap-0 items-center justify-center">
                 <div class="lg:w-1/2 md:w-1/2 sm:w-full xs:w-full flex flex-col justify-center items-center w-full relative sm:ml-2.5 md:ml-0">
                     <img class="w-full h-full" src="/{dados.ID_Imovel}/imagem{pathImagemPrincipal}.jpg" alt="foto-imovel">
                     <button onclick={()=>{
@@ -92,7 +92,7 @@
                 </div>
             </div>
 
-            <div class="max-h-0">
+            <div>
                 <ContatoProduto></ContatoProduto>
             </div>
 

@@ -25,7 +25,6 @@ export async function load({ params }){
     WHERE Imovel.ID_Imovel = ?;
     `
 
-    const nomeImovel = params.id;
     const dadosImovel = await ObterDados(query, [params.id]);
     return{ dadosImovel }
 }

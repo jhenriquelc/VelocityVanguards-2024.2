@@ -48,7 +48,7 @@
 </style>
 
 
-<div class="main">
+<div class="main min-h-screen">
     <div class="
     lg:mx-48
     lg:mx-48
