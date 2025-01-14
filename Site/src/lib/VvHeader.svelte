@@ -14,7 +14,6 @@
 	<NavHamburger />
 	<NavUl>
 		<NavLi href="/">Início</NavLi>
-		<NavLi href="/sobre">Sobre</NavLi>
-		<NavLi href="/contato">Contato</NavLi>
+		<NavLi href="/imoveis">Imóveis</NavLi>
 	</NavUl>
 </Navbar>

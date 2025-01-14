@@ -2,4 +2,4 @@
 import '../app.css';
 </script>
 
-<slot></slot>
+<slot class="h-full"></slot>
