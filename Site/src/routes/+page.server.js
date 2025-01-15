@@ -5,7 +5,6 @@ let queryCardsVendaEmDestaque = `
     SELECT 
     Imovel.ID_Imovel, 
     Imovel.Titulo, 
-    Imovel.Descricao, 
     Imovel.PrecoVenda, 
     Bairro.Nome AS BairroNome, 
     Rua.Nome AS RuaNome
