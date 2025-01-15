@@ -1,20 +1,20 @@
 CREATE DATABASE IF NOT EXISTS ImobiliariaVanguard;
 USE ImobiliariaVanguard;
-
 CREATE TABLE Funcionario(
    	CPF CHAR(11),
     HashSenha CHAR(64),	/*Assumindo SHA 256*/
+    Cookie VARCHAR(64) NULL,
     PRIMARY KEY (CPF)
 );
 
 CREATE TABLE Bairro (
-    ID_Bairro int,
+    ID_Bairro int AUTO_INCREMENT,
     Nome VARCHAR(30),
     PRIMARY KEY (ID_Bairro)
 );
 
 CREATE TABLE Rua (
-    ID_Rua int,
+    ID_Rua int AUTO_INCREMENT,
     Nome VARCHAR(30),
     PRIMARY KEY (ID_Rua)
 );
@@ -22,7 +22,7 @@ CREATE TABLE Rua (
 
 CREATE TABLE Imovel (
 	#endereco
-	ID_Imovel int,
+	ID_Imovel int AUTO_INCREMENT,
 	ID_Bairro int,
 	ID_Rua int, 
 	
@@ -58,4 +58,4 @@ CREATE TABLE Imagem (
 	foto MEDIUMBLOB,
 	PRIMARY KEY (ID_Imagem),
 	FOREIGN KEY (ID_Imovel) REFERENCES Imovel (ID_Imovel)
-)
+);
