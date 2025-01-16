@@ -1,4 +1,5 @@
 import { ObterDados } from "$lib/db";
+import { redirect } from "@sveltejs/kit";
 
 export async function load({ params }){
     let query = `
@@ -26,5 +27,9 @@ export async function load({ params }){
     `
 
     const dadosImovel = await ObterDados(query, [params.id]);
+
+    if(dadosImovel.length < 1){
+        redirect(301, '/imoveis')
+    }
     return{ dadosImovel }
 }

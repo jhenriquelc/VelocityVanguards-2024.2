@@ -6,7 +6,8 @@ INSERT INTO ImobiliariaVanguard.Bairro VALUES (1, 'Jardim Azul');
 INSERT INTO ImobiliariaVanguard.Imovel (ID_Bairro, ID_Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
 VALUES (1, 1, 'Apartamento Residencial', 'Descrição Qualquer',
 1, 1, 1300, NULL);
-INSERT INTO ImobiliariaVanguard.Propriedades VALUES (2, 1200, 
+
+INSERT INTO ImobiliariaVanguard.Propriedades VALUES (1 /*  <-- LEMBRAR DE MODIFICA PELO ID DO IMÓVEL QUE VOCÊ ESTÁ VINCULANDO*/, 1200, 
 1400, 105.2, 2, 3, 2);
 
 /*Criar um usuário com a senha: 'admin'*/
