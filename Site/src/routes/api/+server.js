@@ -1,6 +1,6 @@
+// @ts-nocheck
 import { json } from "@sveltejs/kit";
 import { ObterDados } from "$lib/db";
-// @ts-ignore
 export async function GET({url}){
 
     let localizacao = url.searchParams.get('localizacao');

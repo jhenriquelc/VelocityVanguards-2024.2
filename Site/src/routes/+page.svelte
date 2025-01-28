@@ -19,5 +19,3 @@
 		<CardsVendaEmDestaque listImoveis={data.listImoveis}></CardsVendaEmDestaque>
 	</div>
 </section>
-	
-<VvFooter></VvFooter>
