@@ -64,5 +64,24 @@ export async function POST({request}){
         }
     }
 
+    if (erros.length === 0) {
+        const imovelNovo = await ObterDados(`INSERT INTO ImobiliariaVanguard.Imovel 
+        (ID_Bairro, ID_Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
+        [1, 1, titulo, descricao, categoriaSelecionada, tipoSelecionado, valorVenda, valorAlguel]);
+
+        let {insertId} = imovelNovo;
+        insertId = Number(insertId);
+        console.log(insertId);
+    
+        const propriedades = await ObterDados(`INSERT INTO ImobiliariaVanguard.Propriedades 
+            (ID_Imovel, ValorCondominio, ValorIptu, Area, NumeroGaragem, NumeroQuartos, NumeroBanheiros)
+             VALUES (?, ?, ?, ?, ?, ?, ?);`, 
+            [insertId, Condominio, IPTU, Area, NGaragem, NQuartos, NBanheiros])
+            
+        //console.log(propriedades);
+    }
+
+
     return json({ erros });
 }
