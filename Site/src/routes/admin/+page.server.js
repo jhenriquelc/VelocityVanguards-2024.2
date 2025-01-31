@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ObterDados } from "$lib/db";
 import { sha256 } from 'js-sha256';
 import { fail, redirect } from '@sveltejs/kit';

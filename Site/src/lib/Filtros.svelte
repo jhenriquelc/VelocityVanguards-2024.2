@@ -7,8 +7,6 @@
     let botaoAlugar = $state("alternative");
     let {urlParams = $bindable(), fetchData} = $props();
     
-    
-    //Se comprar for true, usar uma QUERY (só compra), senão usar OUTRA (só busca).
 </script>
 <style>
 
