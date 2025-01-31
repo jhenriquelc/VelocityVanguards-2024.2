@@ -74,14 +74,14 @@ export async function POST({request}){
         insertId = Number(insertId);
         console.log(insertId);
     
-        const propriedades = await ObterDados(`INSERT INTO ImobiliariaVanguard.Propriedades 
+        await ObterDados(`INSERT INTO ImobiliariaVanguard.Propriedades 
             (ID_Imovel, ValorCondominio, ValorIptu, Area, NumeroGaragem, NumeroQuartos, NumeroBanheiros)
              VALUES (?, ?, ?, ?, ?, ?, ?);`, 
             [insertId, Condominio, IPTU, Area, NGaragem, NQuartos, NBanheiros])
-            
-        //console.log(propriedades);
+
+        return json({success: true})
     }
 
 
-    return json({ erros });
+    return json({ erros, success: false });
 }

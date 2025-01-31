@@ -45,7 +45,7 @@
         const result = await response.json();
 
         if (result.success) {
-            goto('/admin');
+            goto('/admin/dashboard');
         }
 
         errors = [...result.erros]; 
@@ -133,18 +133,17 @@
 
         <div>
             {#if errors.length > 0}
-            <ul class="bg-red-50 p-8 rounded-2xl border border-[E5E7EB] shadow-sm my-8">
+            <ul class="bg-red-50 p-8 rounded-2xl border border-[E5E7EB] shadow-sm mt-8">
                 {#each errors as error}
                     <li class="text-red-500">{error};</li>
                 {/each}
             </ul>
             {/if}
-            
         </div>
 
         <div class="flex align-items justify-center">
-            <button class="w-full mt-4 mx-auto" onclick={handleSubmit}>
+            <Button class="w-full mt-4 mx-auto" onclick={handleSubmit}>
                 Adicionar
-            </button>
+            </Button>
         </div>
 </div>
