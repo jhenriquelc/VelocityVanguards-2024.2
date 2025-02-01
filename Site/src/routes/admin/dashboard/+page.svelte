@@ -44,6 +44,7 @@
                     <td class="bg-gray-300">{imovel.BairroNome}</td>
                     <td class="bg-gray-200">{imovel.RuaNome}</td>
                     <td class="bg-gray-200">
+                        
                         <!-- svelte-ignore a11y_click_events_have_key_events -->
                         <!-- svelte-ignore a11y_no_static_element_interactions -->
                         <btn onclick={() => {handleDelete(imovel.ID_Imovel, i)}} class="flex justify-center items-center cursor-pointer">

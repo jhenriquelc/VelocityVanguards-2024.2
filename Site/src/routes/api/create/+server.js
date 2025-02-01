@@ -79,9 +79,9 @@ export async function POST({request}){
              VALUES (?, ?, ?, ?, ?, ?, ?);`, 
             [insertId, Condominio, IPTU, Area, NGaragem, NQuartos, NBanheiros])
 
-        return json({success: true})
+        return json({erros: [], success: true, insertId})
     }
 
 
-    return json({ erros, success: false });
+    return json({ erros, success: false});
 }
