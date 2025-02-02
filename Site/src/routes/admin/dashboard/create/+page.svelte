@@ -5,6 +5,8 @@
 	import { tick } from 'svelte';
     
     let titulo = $state("");
+    let rua = $state("");
+    let bairro = $state("");
     let descricao = $state("");
     let categoriaSelecionada = $state("");
     let tipoSelecionado = $state("");
@@ -38,7 +40,7 @@
     async function handleSubmit() {
        
         if(!imagens){
-            errors = [`Adicione imagens. Volte ao dashboard e exclua o imóvel cadastrado.`]; 
+            errors = [`Adicione imagens`]; 
             return;
         }
 
@@ -47,7 +49,7 @@
             body: JSON.stringify({
                 titulo, descricao, categoriaSelecionada, tipoSelecionado,
                 valorVenda, valorAluguel, IPTU, Condominio, Area,
-                NGaragem, NQuartos, NBanheiros
+                NGaragem, NQuartos, NBanheiros, bairro, rua
             }),
             headers: { 'Content-Type': 'application/json' }
         });
@@ -91,12 +93,12 @@
                 <div class="flex flex-row items-center gap-2">
                     <Label>Rua:</Label>
         
-                    <Input class="mt-2" placeholder='Selecione uma opção'/>
+                    <Input class="mt-2" bind:value={rua}/>
                 </div>
                 <div class="flex flex-row items-center gap-2">
 
                     <Label>Bairro:</Label>
-                    <Input class="mt-2" placeholder='Selecione uma opção'/>
+                    <Input class="mt-2" bind:value={bairro}/>
 
                 </div>
 

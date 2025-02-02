@@ -41,8 +41,8 @@
                         currency: 'BRL',
                     }).format(imovel.PrecoVenda).split(/\s+/)[1]}`}</td>
                     <td class="bg-gray-200 text-center">{imovel.PrecoAluguel === null ? '---' : imovel.PrecoAluguel}</td>
-                    <td class="bg-gray-300">{imovel.BairroNome}</td>
-                    <td class="bg-gray-200">{imovel.RuaNome}</td>
+                    <td class="bg-gray-300">{imovel.Bairro}</td>
+                    <td class="bg-gray-200">{imovel.Rua}</td>
                     <td class="bg-gray-200">
                         
                         <!-- svelte-ignore a11y_click_events_have_key_events -->
