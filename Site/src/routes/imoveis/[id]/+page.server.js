@@ -17,11 +17,9 @@ export async function load({ params }){
     Propriedades.NumeroGaragem,
     Propriedades.NumeroQuartos,
     Propriedades.NumeroBanheiros,
-    Bairro.Nome AS BairroNome, 
-    Rua.Nome AS RuaNome
+    Imovel.Bairro,
+    Imovel.Rua
     FROM Imovel
-    JOIN Bairro ON Imovel.ID_Bairro = Bairro.ID_Bairro
-    JOIN Rua ON Imovel.ID_Rua = Rua.ID_Rua
     JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
     WHERE Imovel.ID_Imovel = ?;
     `
