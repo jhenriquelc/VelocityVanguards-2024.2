@@ -1,4 +1,6 @@
 <script>
+	import { Button } from 'flowbite-svelte';
+
     let {data} = $props();
     let imoveis = $state(data.imoveis);
 
@@ -20,7 +22,7 @@
 </script>
 
 <div class="mx-32">
-    <table class="border-[2px] border-black w-full">
+    <table class="border-[2px] border-black w-full mb-8">
         <thead class="border-black border-[1px]">
             <tr>
                 <th class="bg-gray-300 ">ID</th>
@@ -57,4 +59,5 @@
             {/each}
         </tbody>
     </table>
+    <Button class='w-full' href="/admin/dashboard/create">Adicionar Imovel</Button>
 </div>
