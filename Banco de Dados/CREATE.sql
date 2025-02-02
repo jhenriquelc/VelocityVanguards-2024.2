@@ -7,24 +7,11 @@ CREATE TABLE Funcionario(
     PRIMARY KEY (CPF)
 );
 
-CREATE TABLE Bairro (
-    ID_Bairro int AUTO_INCREMENT,
-    Nome VARCHAR(30),
-    PRIMARY KEY (ID_Bairro)
-);
-
-CREATE TABLE Rua (
-    ID_Rua int AUTO_INCREMENT,
-    Nome VARCHAR(30),
-    PRIMARY KEY (ID_Rua)
-);
-
-
 CREATE TABLE Imovel (
 	#endereco
 	ID_Imovel int AUTO_INCREMENT,
-	ID_Bairro int,
-	ID_Rua int, 
+	Bairro VARCHAR(50),
+	Rua VARCHAR(50), 
 	
 	Titulo VARCHAR(50),
 	Descricao TEXT,
@@ -34,8 +21,6 @@ CREATE TABLE Imovel (
 	PrecoVenda float NULL,	 /* Se for NULL não está a venda*/
 	
 	PRIMARY KEY (ID_Imovel),
-	FOREIGN KEY (ID_Bairro) REFERENCES Bairro(ID_Bairro),
-	FOREIGN KEY (ID_Rua) REFERENCES Rua(ID_Rua)
 );
 
 CREATE TABLE Propriedades(
@@ -56,6 +41,6 @@ CREATE TABLE Imagem (
 	ID_Imagem int,
 	ID_Imovel int,
 	foto MEDIUMBLOB,
-	PRIMARY KEY (ID_Imagem),
+	PRIMARY KEY (ID_Imagem, ID_Imovel),
 	FOREIGN KEY (ID_Imovel) REFERENCES Imovel (ID_Imovel)
 );

@@ -43,15 +43,13 @@ export async function GET({url}){
     Imovel.PrecoAluguel, 
     Imovel.Categoria,
     Imovel.Tipo,
-    Bairro.Nome AS BairroNome, 
-    Rua.Nome AS RuaNome
+    Imovel.Bairro, 
+    Imovel.Rua
     FROM Imovel
-    JOIN Bairro ON Imovel.ID_Bairro = Bairro.ID_Bairro
-    JOIN Rua ON Imovel.ID_Rua = Rua.ID_Rua
     JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
     WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND
     Imovel.Tipo = ? AND 
-    (Bairro.Nome LIKE ? OR Rua.Nome LIKE ?)
+    (Imovel.Bairro LIKE ? OR Imovel.Rua LIKE ?)
     ;`
 
     let imoveis = await ObterDados(query, [min, max, tipo,  `%${localizacao}%`, `%${localizacao}%`]);
