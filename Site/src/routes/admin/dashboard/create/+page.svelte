@@ -58,12 +58,16 @@
 
         let formData = new FormData();
         
-        formData.append(`imagens`, imagens);
+        for(const file of imagens){
+            formData.append(`imagens`, file);
+        }
         formData.append(`insertId`, result.insertId);
 
         errors = [...result.erros]; 
 
         if(result.success){
+            console.log("Files before upload:", imagens);
+
             const responseImage = await fetch('/api/add-image', {
             method: "POST", 
             body: formData 
@@ -72,9 +76,10 @@
             const resultImage = await responseImage.json();
 
             if (resultImage.success){
-                goto('/admin/dashboard');
+                //goto('/admin/dashboard');
+            }else{
+                errors = [...errors, `Problema ao inserir Imagem. Volte ao dashboard e exclua o imóvel cadastrado. Verifique o tamanho do arquivo.`]; 
             }
-            errors = [...errors, `Problema ao inserir Imagem. Volte ao dashboard e exclua o imóvel cadastrado. Verifique o tamanho do arquivo.`]; 
         }
     }
 
