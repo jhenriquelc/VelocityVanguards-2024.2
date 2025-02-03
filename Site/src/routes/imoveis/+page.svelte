@@ -83,7 +83,7 @@
                     <div class="flex items-center justify-center"> 
                     {console.log(imovel.ID_Imovel)}
                     {console.log(listaImoveis)}
-                    <Card img={'imagem2.jpg'} href="/imoveis/{imovel.ID_Imovel}">
+                    <Card img={imovel.foto} href="/imoveis/{imovel.ID_Imovel}">
                         <div>
                             <div class="grid grid-cols-2 mb-1 ">
                                 <h3 class="text-black text-xl">{"Apartamento"}</h3>

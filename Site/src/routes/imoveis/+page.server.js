@@ -11,13 +11,23 @@ export async function load(){
     Imovel.Categoria,
     Imovel.Tipo,
     Imovel.Bairro,
-    Imovel.Rua
+    Imovel.Rua,
+    Imagem.foto
     FROM Imovel
     JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
+    LEFT JOIN Imagem 
+        ON Imovel.ID_Imovel = Imagem.ID_Imovel 
+        AND Imagem.ID_Imagem = 0
     WHERE PrecoVenda > 0;
     ;
     `
     const imoveis = await ObterDados(query);
+
+    for (const imovel of imoveis) {
+        if (imovel.foto) {
+            imovel.foto = `data:image/jpeg;base64,${imovel.foto.toString('base64')}`;
+        }
+    }
 
     return{ imoveis }
 }
