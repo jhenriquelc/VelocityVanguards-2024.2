@@ -9,7 +9,8 @@ export async function GET({url}){
     let max = url.searchParams.get('max');
     let negocio = url.searchParams.get('negocio');
     let tipoDeNegocio = 'PrecoVenda';
-    
+    let not = ``;
+
     min = parseInt(min);
     max = parseInt(max);
     
@@ -24,8 +25,11 @@ export async function GET({url}){
 
     if( tipo === 'comercial'){
         tipo = 1;
-    }else{
+    }else if(tipo === 'residencial'){
         tipo = 2;
+    }else{
+        not = `NOT`
+        tipo = 0;
     }
 
     console.log(negocio);
@@ -49,7 +53,7 @@ export async function GET({url}){
     FROM Imovel
         JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
         LEFT JOIN Imagem ON Imovel.ID_Imovel = Imagem.ID_Imovel AND Imagem.ID_Imagem = 0
-    WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND
+    WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND ${not}
     Imovel.Tipo = ? AND 
     (Imovel.Bairro LIKE ? OR Imovel.Rua LIKE ?)
     ;`
