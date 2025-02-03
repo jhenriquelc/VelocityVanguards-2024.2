@@ -35,7 +35,7 @@
 <div class="place-items-center grid grid-cols-4 gap-4 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     {#each listImoveis as imovel}
         {#if imovel.PrecoVenda > 0 && imovel.PrecoVenda !== null}
-            <Card class="flex" img={listImoveis[0].foto}>
+            <Card class="flex" img={imovel.foto}>
                 <div>
                     <h3 class="text-xl mb-4 text-[#303030] two-lines-truncation">{imovel.Titulo}</h3>
                     <p class="mb-1 single-line-truncation"> {`${imovel.Rua}, ${imovel.Bairro} - Cornélio Procópio`}</p>
