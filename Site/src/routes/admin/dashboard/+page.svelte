@@ -12,11 +12,10 @@
         }),
         headers: { 'Content-Type': 'application/json' }
     });
-        console.log(response);
         const {success} = await response.json();
-        console.log(success);
         if(success){
-            imoveis.splice(i,i);
+            imoveis.splice(i,1);
+            imoveis = [...imoveis]
         }
     }
 </script>

@@ -21,7 +21,13 @@ let queryCardsVendaEmDestaque = `
 export async function load(){
     
     const listImoveis = await ObterDados(queryCardsVendaEmDestaque);
-    console.log(listImoveis)
+    for (const imovel of listImoveis) {
+        if (imovel.foto) {
+            imovel.foto = `data:image/jpeg;base64,${imovel.foto.toString('base64')}`;
+        }
+    }
+
+
     return {
         listImoveis: listImoveis,
     };
