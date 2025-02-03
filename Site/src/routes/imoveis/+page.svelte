@@ -24,8 +24,9 @@
     
     const response = await fetch(`/api?${params.toString()}`)
     .then(response => response.json())
-    .then(data => {console.log(listaImoveis); listaImoveis = data});
-
+    .then(data => {console.log(listaImoveis); listaImoveis = [...data]});
+    
+    console.log(listaImoveis);
     comprar = urlParams.negocio;
     }
 
@@ -81,12 +82,10 @@
                 
                     {#each listaImoveis as imovel}
                     <div class="flex items-center justify-center"> 
-                    {console.log(imovel.ID_Imovel)}
-                    {console.log(listaImoveis)}
                     <Card img={imovel.foto} href="/imoveis/{imovel.ID_Imovel}">
                         <div>
                             <div class="grid grid-cols-2 mb-1 ">
-                                <h3 class="text-black text-xl">{"Apartamento"}</h3>
+                                <h3 class="text-black text-xl">{imovel.Categoria}</h3>
                                 <div class="flex flex-row justify-end items-center">
                                    
                                     <!-- Tipo === 1, significa que é comercial-->
@@ -98,7 +97,7 @@
                                 </div>        
                             </div>
                             
-                            <p class="mb-1 single-line-truncation">Jardim Azul - Cornélio Procópio</p>
+                            <p class="mb-1 single-line-truncation">{imovel.Bairro} - Cornélio Procópio</p>
                             {#if comprar === 'true'}
                                 <p class="text-[#CC4522] font-bold single-line-truncation">R$ <span class="text-[1.4rem]">{new Intl.NumberFormat('pt-BR', {style: 'currency',
                                     currency: 'BRL',

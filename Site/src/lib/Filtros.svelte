@@ -19,25 +19,6 @@
         margin-bottom: 0.7rem;
     }
 
-    .flex{
-        display: flex;
-    }
-
-    .flex-vertical{
-        flex-direction: column;
-    }
-
-    .grid-4{
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr 3fr;
-        gap: 0.5rem;
-    }
-
-    .input-preco{
-        width: 100%;
-    }
-
-
     .div-preco{
         margin-bottom: 0.7rem;
     }
@@ -45,7 +26,7 @@
 
 
 <div class="bg-white p-8 rounded-2xl border border-[E5E7EB] shadow-sm w-1/ ">
-    <form  class="flex flex-vertical">
+    <form  class="flex flex-col">
         
         <label for="localizacao">Localização</label>
         <input bind:value={urlParams.localizacao} name="localizacao" type="text">
@@ -54,11 +35,11 @@
         <input bind:value={urlParams.tipo} name="tipo" type="text">
 
         <p class="mb-3">Preco (R$)</p>
-        <div class="grid-4 div-preco">
+        <div class="grid gap-2 grid-cols-[1fr_3fr_1fr_3fr] div-preco">
                 <label for="min">Mín:</label>
-                <input bind:value={urlParams.min}  name="min" class="input-preco" type="text">
+                <input bind:value={urlParams.min}  name="min" class="w-full" type="text">
                 <label for="max">Max:</label>
-                <input bind:value={urlParams.max} name="max" class="input-preco" type="text">
+                <input bind:value={urlParams.max} name="max" class="w-full" type="text">
         </div>
 
         <div class="grid grid-cols-2 mb-4 gap-2">

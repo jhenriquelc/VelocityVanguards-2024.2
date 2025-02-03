@@ -51,5 +51,15 @@ export async function load({ params }){
             Rua: dadosImovel[0].Rua,
             foto: dadosImovel.map(row => row.foto =`data:image/jpeg;base64,${row.foto.toString('base64')}` )
         }
+
+        if(imovel.Categoria === 1){
+            imovel.Categoria = 'Apartamento'
+        }else if(imovel.Categoria === 2){
+            imovel.Categoria = 'Casa'
+        }else if(imovel.Categoria === 3){
+            imovel.Categoria = 'Terreno'
+        }else{
+            imovel.Categoria = 'Sala'
+        }
     return{ imovel }
 }

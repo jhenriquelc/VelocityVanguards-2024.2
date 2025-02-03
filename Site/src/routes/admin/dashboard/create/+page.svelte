@@ -76,7 +76,7 @@
             const resultImage = await responseImage.json();
 
             if (resultImage.success){
-                //goto('/admin/dashboard');
+                goto('/admin/dashboard');
             }else{
                 errors = [...errors, `Problema ao inserir Imagem. Volte ao dashboard e exclua o imóvel cadastrado. Verifique o tamanho do arquivo.`]; 
             }

@@ -18,7 +18,7 @@
     }
 </style>
 
-<h1 class="text-xl text-justify mb-4 two-lines-truncation">Apartamento Residencial no edifício La Carte</h1>
+<h1 class="text-xl text-justify mb-4 two-lines-truncation">{dados.Titulo}</h1>
 
 <hr style="w-full">
 
