@@ -20,6 +20,7 @@ let queryCardsVendaEmDestaque = `
 
 export async function load(){
     
+
     const listImoveis = await ObterDados(queryCardsVendaEmDestaque);
     for (const imovel of listImoveis) {
         if (imovel.foto) {

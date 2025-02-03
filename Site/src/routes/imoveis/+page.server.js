@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { ObterDados } from "$lib/db";
 
-export async function load(){
+export async function load({url}){
 
     let query = `
     SELECT 

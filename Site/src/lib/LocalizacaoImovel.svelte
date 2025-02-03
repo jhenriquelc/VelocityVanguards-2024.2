@@ -1,3 +1,4 @@
-<div class="flex flex-col items-center mb-8">
-    <h2>Localização do imóvel</h2>
+<div class="flex flex-col items-center">
+    <h2 class="mb-4">Localização do imóvel</h2>
+    <img class="w-full" src="/localizacaoImobiliaria.jpg" alt="">
 </div>

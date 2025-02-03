@@ -1,5 +1,5 @@
 <script>
-    import { Search } from 'flowbite-svelte';
+    import { Button, Search } from 'flowbite-svelte';
     import { Section, HeroHeader } from 'flowbite-svelte-blocks';
 </script>
 
@@ -30,7 +30,9 @@
 			<svelte:fragment slot="h2">
 				Descubra como a Vanguard lhe põe à frente do mercado imobiliário.
 			</svelte:fragment>
-			<Search placeholder="Procure por seu imóvel..." />
+			<Search placeholder="Procure por seu imóvel...">
+				<Button href={`/imoveis`} >Search</Button>
+			</Search>
 		</HeroHeader>
 	</Section>
 </div>
