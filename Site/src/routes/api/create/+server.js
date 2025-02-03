@@ -12,7 +12,7 @@ export async function POST({request}){
     let titulo = data.titulo;
     let descricao = data.descricao;
     let valorVenda = data.valorVenda;
-    let valorAlguel = data.valorAlguel;
+    let valorAluguel = data.valorAluguel;
     let IPTU = data.IPTU;
     let Condominio = data.Condominio;
     let Area = data.Area;
@@ -49,7 +49,7 @@ export async function POST({request}){
         erros.push("Selecione um tipo");
     }
 
-    if ((!valorVenda || isNaN(parseFloat(valorVenda))) && (!valorAlguel || isNaN(parseFloat(valorAlguel)))) {
+    if ((!valorVenda || isNaN(parseFloat(valorVenda))) && (!valorAluguel || isNaN(parseFloat(valorAluguel)))) {
         erros.push("O imóvel deve estar à venda ou disponível para aluguel");
     }
 
@@ -61,7 +61,7 @@ export async function POST({request}){
         erros.push("O Condomínio deve ser numérico ou estar vazio");
     }
 
-    if (valorAlguel === "") valorAlguel = null;
+    if (valorAluguel === "") valorAluguel = null;
     if (valorVenda === "") valorVenda = null;
     if (Condominio === "") Condominio = null;
 
@@ -81,7 +81,7 @@ export async function POST({request}){
         const imovelNovo = await ObterDados(`INSERT INTO ImobiliariaVanguard.Imovel 
         (Bairro, Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
-        [bairro, rua, titulo, descricao, categoriaSelecionada, tipoSelecionado, valorVenda, valorAlguel]);
+        [bairro, rua, titulo, descricao, categoriaSelecionada, tipoSelecionado, valorVenda, valorAluguel]);
 
         let {insertId} = imovelNovo;
         insertId = Number(insertId);

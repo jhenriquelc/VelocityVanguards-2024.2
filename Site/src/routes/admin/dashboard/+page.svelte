@@ -1,8 +1,11 @@
 <script>
+// @ts-nocheck
+
 	import { Button } from 'flowbite-svelte';
 
     let {data} = $props();
     let imoveis = $state(data.imoveis);
+    console.log(data);
 
     async function handleDelete(ID_Imovel, i){
         const response = await fetch('/api/delete', {
@@ -41,7 +44,9 @@
                     <td class="bg-gray-300 text-center">{imovel.PrecoVenda === null ? '---' : `R$ ${new Intl.NumberFormat('pt-BR', {style: 'currency',
                         currency: 'BRL',
                     }).format(imovel.PrecoVenda).split(/\s+/)[1]}`}</td>
-                    <td class="bg-gray-200 text-center">{imovel.PrecoAluguel === null ? '---' : imovel.PrecoAluguel}</td>
+                    <td class="bg-gray-200 text-center">{imovel.PrecoAluguel === null ? '---' : `R$ ${new Intl.NumberFormat('pt-BR', {style: 'currency',
+                        currency: 'BRL',
+                    }).format(imovel.PrecoAluguel).split(/\s+/)[1]}`}</td>
                     <td class="bg-gray-300">{imovel.Bairro}</td>
                     <td class="bg-gray-200">{imovel.Rua}</td>
                     <td class="bg-gray-200">
