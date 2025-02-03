@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { ObterDados } from "$lib/db";
 
 import { json } from "@sveltejs/kit";
 import { ObterDados } from "$lib/db";
