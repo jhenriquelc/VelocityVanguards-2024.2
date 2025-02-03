@@ -19,9 +19,22 @@ export async function POST({request}){
     let NGaragem = data.NGaragem;
     let NQuartos = data.NQuartos;
     let NBanheiros = data.NBanheiros;
+    let bairro = data.bairro;
+    let rua = data.rua;
 
-    if (!titulo || titulo.length < 25) {
-        erros.push("Insira um título com pelo menos 25 caracteres");
+    if(rua.trim() === ''){
+        erros.push('Insira o nome da rua');
+    }
+
+    if(bairro.trim() === ''){
+        erros.push('Insira o nome do bairro');
+    }
+
+    console.log(rua, bairro);
+
+
+    if (!titulo || titulo.length < 25 || titulo.length > 50) {
+        erros.push("Insira um título com pelo menos 25 e no máximo 50 caracteres");
     }
 
     if (!descricao) {
@@ -66,9 +79,9 @@ export async function POST({request}){
 
     if (erros.length === 0) {
         const imovelNovo = await ObterDados(`INSERT INTO ImobiliariaVanguard.Imovel 
-        (ID_Bairro, ID_Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
+        (Bairro, Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
-        [1, 1, titulo, descricao, categoriaSelecionada, tipoSelecionado, valorVenda, valorAlguel]);
+        [bairro, rua, titulo, descricao, categoriaSelecionada, tipoSelecionado, valorVenda, valorAlguel]);
 
         let {insertId} = imovelNovo;
         insertId = Number(insertId);
@@ -79,9 +92,9 @@ export async function POST({request}){
              VALUES (?, ?, ?, ?, ?, ?, ?);`, 
             [insertId, Condominio, IPTU, Area, NGaragem, NQuartos, NBanheiros])
 
-        return json({success: true})
+        return json({erros: [], success: true, insertId})
     }
 
 
-    return json({ erros, success: false });
+    return json({ erros, success: false});
 }

@@ -7,9 +7,11 @@ export async function DELETE({request}){
     const {ID_Imovel} = data;
 
     try{
+    await ObterDados(`DELETE FROM Imagem WHERE ID_IMOVEL = ?`, [ID_Imovel])
     await ObterDados(`DELETE FROM Propriedades WHERE ID_Imovel = ?;`,[ID_Imovel]);
     await ObterDados(`DELETE FROM Imovel WHERE ID_Imovel = ?;`, [ID_Imovel]);
-    }catch{
+    }catch(e){
+        console.log(e);
         console.log("Erro ao deletar imovel");
         return json({success: false});
     }

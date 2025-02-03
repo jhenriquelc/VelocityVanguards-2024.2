@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
     // @ts-nocheck
 	import { goto } from '$app/navigation';
-    import { Input, Label, Select, Textarea, Button, Li } from 'flowbite-svelte';
+    import { Input, Label, Select, Textarea, Button, Fileupload, Helper } from 'flowbite-svelte';
 	import { tick } from 'svelte';
     
     let titulo = $state("");
+    let rua = $state("");
+    let bairro = $state("");
     let descricao = $state("");
     let categoriaSelecionada = $state("");
     let tipoSelecionado = $state("");
@@ -18,6 +20,9 @@
     let NBanheiros = $state("");
 
     let errors = $state([]);
+    
+    // svelte-ignore non_reactive_update
+        let imagens: FileList | undefined;
 
     let categoria = [
       { value: 1, name: 'Apartamento' },
@@ -31,25 +36,54 @@
       { value: 2, name: 'Residencial'}
     ]
 
+
     async function handleSubmit() {
-    const response = await fetch('/api/create', {
-        method: "POST",
-        body: JSON.stringify({
-            titulo, descricao, categoriaSelecionada, tipoSelecionado,
-            valorVenda, valorAluguel, IPTU, Condominio, Area,
-            NGaragem, NQuartos, NBanheiros
-        }),
-        headers: { 'Content-Type': 'application/json' }
-    });
+       
+        if(!imagens){
+            errors = [`Adicione imagens`]; 
+            return;
+        }
+
+        const response = await fetch('/api/create', {
+            method: "POST",
+            body: JSON.stringify({
+                titulo, descricao, categoriaSelecionada, tipoSelecionado,
+                valorVenda, valorAluguel, IPTU, Condominio, Area,
+                NGaragem, NQuartos, NBanheiros, bairro, rua
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
 
         const result = await response.json();
 
-        if (result.success) {
-            goto('/admin/dashboard');
+        let formData = new FormData();
+        
+        for(const file of imagens){
+            formData.append(`imagens`, file);
         }
+        formData.append(`insertId`, result.insertId);
 
         errors = [...result.erros]; 
+
+        if(result.success){
+            console.log("Files before upload:", imagens);
+
+            const responseImage = await fetch('/api/add-image', {
+            method: "POST", 
+            body: formData 
+            });
+
+            const resultImage = await responseImage.json();
+
+            if (resultImage.success){
+                goto('/admin/dashboard');
+            }else{
+                errors = [...errors, `Problema ao inserir Imagem. Volte ao dashboard e exclua o imóvel cadastrado. Verifique o tamanho do arquivo.`]; 
+            }
+        }
     }
+
+
 
 </script>
   
@@ -64,12 +98,12 @@
                 <div class="flex flex-row items-center gap-2">
                     <Label>Rua:</Label>
         
-                    <Input class="mt-2" placeholder='Selecione uma opção'/>
+                    <Input class="mt-2" bind:value={rua}/>
                 </div>
                 <div class="flex flex-row items-center gap-2">
 
                     <Label>Bairro:</Label>
-                    <Input class="mt-2" placeholder='Selecione uma opção'/>
+                    <Input class="mt-2" bind:value={bairro}/>
 
                 </div>
 
@@ -131,6 +165,12 @@
 
         </div>
 
+        <h2 class="mb-4 text-lg mt-4">Imagens</h2>
+
+        <div>
+            <Fileupload clearable multiple bind:files={imagens} label="Upload images" /> 
+        </div>
+    
         <div>
             {#if errors.length > 0}
             <ul class="bg-red-50 p-8 rounded-2xl border border-[E5E7EB] shadow-sm mt-8">

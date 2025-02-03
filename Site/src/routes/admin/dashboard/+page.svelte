@@ -1,4 +1,6 @@
 <script>
+	import { Button } from 'flowbite-svelte';
+
     let {data} = $props();
     let imoveis = $state(data.imoveis);
 
@@ -10,17 +12,16 @@
         }),
         headers: { 'Content-Type': 'application/json' }
     });
-        console.log(response);
         const {success} = await response.json();
-        console.log(success);
         if(success){
-            imoveis.splice(i,i);
+            imoveis.splice(i,1);
+            imoveis = [...imoveis]
         }
     }
 </script>
 
 <div class="mx-32">
-    <table class="border-[2px] border-black w-full">
+    <table class="border-[2px] border-black w-full mb-8">
         <thead class="border-black border-[1px]">
             <tr>
                 <th class="bg-gray-300 ">ID</th>
@@ -41,9 +42,10 @@
                         currency: 'BRL',
                     }).format(imovel.PrecoVenda).split(/\s+/)[1]}`}</td>
                     <td class="bg-gray-200 text-center">{imovel.PrecoAluguel === null ? '---' : imovel.PrecoAluguel}</td>
-                    <td class="bg-gray-300">{imovel.BairroNome}</td>
-                    <td class="bg-gray-200">{imovel.RuaNome}</td>
+                    <td class="bg-gray-300">{imovel.Bairro}</td>
+                    <td class="bg-gray-200">{imovel.Rua}</td>
                     <td class="bg-gray-200">
+                        
                         <!-- svelte-ignore a11y_click_events_have_key_events -->
                         <!-- svelte-ignore a11y_no_static_element_interactions -->
                         <btn onclick={() => {handleDelete(imovel.ID_Imovel, i)}} class="flex justify-center items-center cursor-pointer">
@@ -56,4 +58,5 @@
             {/each}
         </tbody>
     </table>
+    <Button class='w-full' href="/admin/dashboard/create">Adicionar Imovel</Button>
 </div>

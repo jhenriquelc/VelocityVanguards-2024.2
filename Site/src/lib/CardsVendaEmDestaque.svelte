@@ -2,7 +2,8 @@
 <script>
     import { Button, Card } from 'flowbite-svelte';
     const {listImoveis} = $props();
-    console.log(listImoveis);
+
+
 </script>
 
 <style>
@@ -34,10 +35,10 @@
 <div class="place-items-center grid grid-cols-4 gap-4 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     {#each listImoveis as imovel}
         {#if imovel.PrecoVenda > 0 && imovel.PrecoVenda !== null}
-            <Card class="flex;" img={"imagem2.jpg"}>
+            <Card class="flex" img={listImoveis[0].foto}>
                 <div>
                     <h3 class="text-xl mb-4 text-[#303030] two-lines-truncation">{imovel.Titulo}</h3>
-                    <p class="mb-1 single-line-truncation"> {`${imovel.RuaNome}, ${imovel.BairroNome} - Cornélio Procópio`}</p>
+                    <p class="mb-1 single-line-truncation"> {`${imovel.Rua}, ${imovel.Bairro} - Cornélio Procópio`}</p>
                     <p class="mb-4">Comprar: {new Intl.NumberFormat('pt-BR', {style: 'currency',
                     currency: 'BRL',
                     }).format(imovel.PrecoVenda)}</p>

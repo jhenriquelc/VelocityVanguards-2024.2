@@ -43,17 +43,33 @@ export async function GET({url}){
     Imovel.PrecoAluguel, 
     Imovel.Categoria,
     Imovel.Tipo,
-    Bairro.Nome AS BairroNome, 
-    Rua.Nome AS RuaNome
+    Imovel.Bairro, 
+    Imovel.Rua,
+    Imagem.foto
     FROM Imovel
-    JOIN Bairro ON Imovel.ID_Bairro = Bairro.ID_Bairro
-    JOIN Rua ON Imovel.ID_Rua = Rua.ID_Rua
-    JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
+        JOIN Propriedades ON Imovel.ID_Imovel = Propriedades.ID_Imovel
+        LEFT JOIN Imagem ON Imovel.ID_Imovel = Imagem.ID_Imovel AND Imagem.ID_Imagem = 0
     WHERE (Imovel.${tipoDeNegocio} BETWEEN ? AND ? ) AND
     Imovel.Tipo = ? AND 
-    (Bairro.Nome LIKE ? OR Rua.Nome LIKE ?)
+    (Imovel.Bairro LIKE ? OR Imovel.Rua LIKE ?)
     ;`
 
     let imoveis = await ObterDados(query, [min, max, tipo,  `%${localizacao}%`, `%${localizacao}%`]);
+    console.log(imoveis);
+
+    for (const imovel of imoveis) {
+        if (imovel.foto) {
+            imovel.foto = `data:image/jpeg;base64,${imovel.foto.toString('base64')}`;
+        }
+        if(imovel.Categoria === 1){
+            imovel.Categoria = 'Apartamento'
+        }else if(imovel.Categoria === 2){
+            imovel.Categoria = 'Casa'
+        }else if(imovel.Categoria === 3){
+            imovel.Categoria = 'Terreno'
+        }else{
+            imovel.Categoria = 'Sala'
+        }
+    }
     return json(imoveis);
 }

@@ -1,11 +1,11 @@
 USE ImobiliariaVanguard;
 
 /*Popular um imóvel*/
-INSERT INTO ImobiliariaVanguard.Rua VALUES (1, 'Rua das Camélias');
-INSERT INTO ImobiliariaVanguard.Bairro VALUES (1, 'Jardim Azul');
-INSERT INTO ImobiliariaVanguard.Imovel (ID_Bairro, ID_Rua, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
-VALUES (1, 1, 'Apartamento Residencial', 'Descrição Qualquer',
-1, 1, 1300, NULL);
+
+INSERT INTO ImobiliariaVanguard.Imovel (Rua, Bairro, Titulo, Descricao, Categoria, Tipo, PrecoVenda, PrecoAluguel)
+VALUES ('Rua Marcelo', 'Bairro Marcelo', 'Apartamento mARCELO', 'Descrição Qualquer',
+1,	/*Categoria= Apartamento (1)*/
+2 	/*Categoria= Comercial(1), Residencial (2)*/, 1300, NULL);
 
 INSERT INTO ImobiliariaVanguard.Propriedades VALUES (1 /*  <-- LEMBRAR DE MODIFICA PELO ID DO IMÓVEL QUE VOCÊ ESTÁ VINCULANDO*/, 1200, 
 1400, 105.2, 2, 3, 2);
