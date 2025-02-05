@@ -14,6 +14,7 @@ Ter as ferramentas a seguir instaladas e acessíveis pelo terminal:
 
 * [Node.js v22](https://nodejs.org/)
 * [pNpm](https://pnpm.io/)
+* [MariaDB](https://mariadb.com/)
 
 ### Rodar ambiente
 
@@ -24,6 +25,8 @@ Botão verde "Código" → Seção "Codespaces" → Selecione um Codespace exist
 
 Você será redirecionado para um contêiner pré-configurado para desenvolvimento do nosso projeto github.dev.
 
+Depois de criado um ambiente de desenvolvimento, é interessante iniciar o banco de dados com alguns exemplos. Refira à [documentação do banco de dados](<../Banco de Dados/README.md>).
+
 Para iniciar o site, selecione "Executar e Depurar" na barra lateral, e rode o perfil "Iniciar Site".
 
 Serão instaladas as dependências e então aparecerá um link no terminal que te leva a uma visualização do site que atualiza em tempo real conforme você salva suas alterações no código. Para acessar o link, use Ctrl+clique.
@@ -31,9 +34,9 @@ Serão instaladas as dependências e então aparecerá um link no terminal que t
 #### Local
 
 Num terminal, entre na pasta do site e execute `pnpm install` para baixar as dependências do projeto.
-Para rodar, ainda na pasta do site, rode `pnpm run dev` para executar um servidor de desenvolvimento que atualiza em tempo real conforme você salva suas alterações no código. Acesse-o pelo link exibido nos logs do servidor.
+Para rodar, ainda na pasta do site, rode `pnpm run dev` para executar um servidor de desenvolvimento que atualiza em tempo real conforme você salva suas alterações no código. Acesse-o pelo link exibido nos logs do servidor. Se você utilizar VS Code, apenas inicie o perfil de depuração configurado.
 
-Se você utilizar VS Code, apenas inicie o perfil de depuração configurado.
+É interessante iniciar o banco de dados com alguns exemplos. Refira à [documentação do banco de dados](<../Banco de Dados/README.md>).
 
 ## Compilando
 
@@ -45,12 +48,14 @@ pnpm run build
 
 Você pode ver uma pré-visualização da versão de produção com `pnpm run preview`.
 
-> Para dar deploy no app, será necessário o uso de um [adaptador](https://svelte.dev/docs/kit/adapters) para o ambiente desejado.
+> Para dar deploy no app, será necessário o uso de um [adaptador](https://svelte.dev/docs/kit/adapters) para o ambiente desejado. Planejamos utilizar o adaptador para NodeJS.
 
 ## Bibliotecas utilizadas
 
 * [tailwindcss](https://tailwindcss.com/docs/): classes css com estilos comuns prontos
 * [flowbite-svelte](https://flowbite-svelte.com/docs/components/accordion): componentes prontos para Svelte que fazem uso de tailwindcss
+* [flowbite-svelte-blocks](https://flowbite-svelte-blocks.vercel.app/): conjuntos de componentes prontos que fazem uso dos componentes disponíveis em flowbite-svelte.
+* [MariaDB Node.js connector](https://www.npmjs.com/package/mariadb)
 
 ## Navegação
 

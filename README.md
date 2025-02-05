@@ -29,10 +29,18 @@ Site de imobiliária para os moradores da cidade de Cornélio Procópio, tendo c
 ### Gerenciais
 
 - [Guia de Contribuição](CONTRIBUTING.md)
-- [Guia de Desenvolvimento do Site](Site/README.md)
 
 ### Requisitos de Usuário
 
 - [Histórias de Usuário](<Requisitos de Usuário/HistoriasUsuario.md>)
 - [Requisitos Funcionais](<Requisitos de Usuário/RF.md>)
 - [Requisitos Não Funcionais](<Requisitos de Usuário/RNF.md>)
+
+### Prototipação
+
+- [Wireframes](<Prototipação/Wireframes.md>)
+
+### Técnico
+
+- [Banco de Dados](<Banco de Dados/README.md>)
+- [Site](Site/README.md)
