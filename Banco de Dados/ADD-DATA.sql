@@ -11,4 +11,4 @@ INSERT INTO ImobiliariaVanguard.Propriedades VALUES (1 /*  <-- LEMBRAR DE MODIFI
 1400, 105.2, 2, 3, 2);
 
 /*Criar um usuário com a senha: 'admin'*/
-INSERT INTO ImobiliariaVanguard.Funcionario VALUES (12345678911, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', NULL)
+INSERT INTO ImobiliariaVanguard.Funcionario VALUES (12345678911, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', NULL);

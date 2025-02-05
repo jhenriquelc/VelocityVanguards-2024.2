@@ -8,7 +8,7 @@ CREATE TABLE Funcionario(
 );
 
 CREATE TABLE Imovel (
-	#endereco
+	/*endereco*/
 	ID_Imovel int AUTO_INCREMENT,
 	Bairro VARCHAR(50),
 	Rua VARCHAR(50), 
@@ -20,7 +20,7 @@ CREATE TABLE Imovel (
 	PrecoAluguel float NULL, /* Se for NULL não é alugavel*/
 	PrecoVenda float NULL,	 /* Se for NULL não está a venda*/
 	
-	PRIMARY KEY (ID_Imovel),
+	PRIMARY KEY (ID_Imovel)
 );
 
 CREATE TABLE Propriedades(
