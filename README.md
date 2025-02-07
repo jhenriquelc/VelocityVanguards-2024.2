@@ -46,3 +46,11 @@ Site de imobiliária para os moradores da cidade de Cornélio Procópio, tendo c
 
 - [Banco de Dados](<Banco de Dados/README.md>)
 - [Site](Site/README.md)
+
+## Nota de conclusão
+
+Com o projeto entregue, este repositório será arquivado e tirado do ar assim que for avaliado.
+
+Para ver a parte pública da última versão projeto depois que sua instância for tirada do ar, [use a versão arquivada no archive.org](https://web.archive.org/web/20250207010002/https://vv.casa24h.dev.br/)
+
+Agradeço à Profª Erica Souza pelos conselhos dados durante o desenvolvimento deste projeto. Sua orientação foi fundamental para a conclusão desta atividade.
